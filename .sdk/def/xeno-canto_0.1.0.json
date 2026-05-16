@@ -1,0 +1,380 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Xeno-canto API",
+    "description": "API for accessing bird and wildlife sounds from around the world. Provides a RESTful JSON-based interface to search for and retrieve recordings of various species.",
+    "version": "3.0.0",
+    "contact": {
+      "name": "Xeno-canto",
+      "url": "https://xeno-canto.org"
+    },
+    "termsOfService": "https://xeno-canto.org/about/terms"
+  },
+  "servers": [
+    {
+      "url": "https://xeno-canto.org/api/3",
+      "description": "Xeno-canto API v3 Server"
+    }
+  ],
+  "paths": {
+    "/recordings": {
+      "get": {
+        "summary": "Search for recordings",
+        "description": "Search for wildlife sound recordings using various search tags and filters. Returns recordings matching the specified criteria.",
+        "operationId": "searchRecordings",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search query string using search tags (e.g., sp:\"larus fuscus\", gen:turdus, cnt:spain). Must be non-empty. See documentation for available search tags.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "sp:\"larus fuscus\""
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "description": "API key for authentication. Available to all registered XC members with verified email addresses. Required for all API v3 requests.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of results per page. Valid values range from 50 to 500. Default is 100.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 50,
+              "maximum": 500,
+              "default": 100
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for paginated results. Must be between 1 and numPages from the response.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful query returning recordings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecordingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Client error - invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Recordings"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RecordingsResponse": {
+        "type": "object",
+        "properties": {
+          "numRecordings": {
+            "type": "string",
+            "description": "Total number of recordings found for this query"
+          },
+          "numSpecies": {
+            "type": "string",
+            "description": "Total number of species found for this query"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Current page number of results being displayed"
+          },
+          "numPages": {
+            "type": "integer",
+            "description": "Total number of pages available for this query"
+          },
+          "recordings": {
+            "type": "array",
+            "description": "Array of recording objects matching the query",
+            "items": {
+              "$ref": "#/components/schemas/Recording"
+            }
+          }
+        },
+        "required": [
+          "numRecordings",
+          "numSpecies",
+          "page",
+          "numPages",
+          "recordings"
+        ]
+      },
+      "Recording": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Catalogue number of the recording on xeno-canto"
+          },
+          "gen": {
+            "type": "string",
+            "description": "Generic name of the species"
+          },
+          "sp": {
+            "type": "string",
+            "description": "Specific name (epithet) of the species"
+          },
+          "ssp": {
+            "type": "string",
+            "description": "Subspecies name (subspecific epithet)"
+          },
+          "grp": {
+            "type": "string",
+            "description": "Group to which the species belongs",
+            "enum": [
+              "birds",
+              "grasshoppers",
+              "bats"
+            ]
+          },
+          "en": {
+            "type": "string",
+            "description": "English name of the species"
+          },
+          "rec": {
+            "type": "string",
+            "description": "Name of the recordist"
+          },
+          "cnt": {
+            "type": "string",
+            "description": "Country where the recording was made"
+          },
+          "loc": {
+            "type": "string",
+            "description": "Name of the locality"
+          },
+          "lat": {
+            "type": "string",
+            "description": "Latitude of the recording in decimal coordinates"
+          },
+          "lon": {
+            "type": "string",
+            "description": "Longitude of the recording in decimal coordinates"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Altitude at which the recording was made"
+          },
+          "type": {
+            "type": "string",
+            "description": "Sound type of the recording (e.g., call, song)"
+          },
+          "sex": {
+            "type": "string",
+            "description": "Sex of the animal"
+          },
+          "stage": {
+            "type": "string",
+            "description": "Life stage of the animal (adult, juvenile, etc.)"
+          },
+          "method": {
+            "type": "string",
+            "description": "Recording method (field recording, in the hand, etc.)"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL specifying the details of this recording"
+          },
+          "file": {
+            "type": "string",
+            "description": "URL to the audio file"
+          },
+          "file-name": {
+            "type": "string",
+            "description": "Original file name of the audio file"
+          },
+          "sono": {
+            "type": "object",
+            "description": "URLs to the four versions of sonograms",
+            "properties": {
+              "small": {
+                "type": "string"
+              },
+              "med": {
+                "type": "string"
+              },
+              "large": {
+                "type": "string"
+              },
+              "full": {
+                "type": "string"
+              }
+            }
+          },
+          "osci": {
+            "type": "object",
+            "description": "URLs to the three versions of oscillograms",
+            "properties": {
+              "small": {
+                "type": "string"
+              },
+              "med": {
+                "type": "string"
+              },
+              "large": {
+                "type": "string"
+              }
+            }
+          },
+          "lic": {
+            "type": "string",
+            "description": "URL describing the license of this recording"
+          },
+          "q": {
+            "type": "string",
+            "description": "Current quality rating for the recording"
+          },
+          "length": {
+            "type": "string",
+            "description": "Length of the recording in minutes"
+          },
+          "time": {
+            "type": "string",
+            "description": "Time of day that the recording was made"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date that the recording was made"
+          },
+          "uploaded": {
+            "type": "string",
+            "description": "Date that the recording was uploaded to xeno-canto"
+          },
+          "also": {
+            "type": "array",
+            "description": "Identified background species in the recording",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rmk": {
+            "type": "string",
+            "description": "Additional remarks by the recordist"
+          },
+          "animal-seen": {
+            "type": "string",
+            "description": "Was the recorded animal seen?"
+          },
+          "playback-used": {
+            "type": "string",
+            "description": "Was playback used to lure the animal?"
+          },
+          "temp": {
+            "type": "string",
+            "description": "Temperature during recording (applicable to specific groups only)"
+          },
+          "regnr": {
+            "type": "string",
+            "description": "Registration number of specimen (when collected)"
+          },
+          "auto": {
+            "type": "string",
+            "description": "Automatic (non-supervised) recording?"
+          },
+          "dvc": {
+            "type": "string",
+            "description": "Recording device used"
+          },
+          "mic": {
+            "type": "string",
+            "description": "Microphone used"
+          },
+          "smp": {
+            "type": "string",
+            "description": "Sample rate"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Identifier for the error"
+              },
+              "message": {
+                "type": "string",
+                "description": "Additional explanatory details about the error"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ]
+          }
+        },
+        "required": [
+          "error"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "key",
+        "description": "API key available to all registered XC members with verified email addresses"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Recordings",
+      "description": "Operations for searching and retrieving wildlife sound recordings"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full API Documentation",
+    "url": "https://xeno-canto.org/explore/api"
+  }
+}

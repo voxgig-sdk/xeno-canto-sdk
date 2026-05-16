@@ -1,0 +1,265 @@
+# Entity: recording
+
+main: kit: entity: recording: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "also"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "alt"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "animal_seen"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "auto"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "cnt"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "dvc"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "en"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "file"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "file_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "gen"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "grp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lat"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "length"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lic"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "loc"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "lon"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "method"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mic"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "osci"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "playback_used"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "q"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rec"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "regnr"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "rmk"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "sex"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "smp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "sono"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "sp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ssp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "stage"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "temp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "time"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "uploaded"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "recording"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "key"
+                orig: "key"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 100
+                kind: "query"
+                name: "per_page"
+                orig: "per_page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "sp:\"larus fuscus\""
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/recordings"
+          parts: [
+            "recordings"
+          ]
+          select: {
+            exist: [
+              "key"
+              "page"
+              "per_page"
+              "query"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

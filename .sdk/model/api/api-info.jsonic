@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Xeno-canto"
+        url: "https://xeno-canto.org"
+      }
+      description: "API for accessing bird and wildlife sounds from around the world. Provides a RESTful JSON-based interface to search for and retrieve recordings of various species."
+      servers: [
+        {
+          description: "Xeno-canto API v3 Server"
+          url: "https://xeno-canto.org/api/3"
+        }
+      ]
+      termsOfService: "https://xeno-canto.org/about/terms"
+      title: "Xeno-canto API"
+      version: "3.0.0"
+    }
+  }
+}
+
+}
