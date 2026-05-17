@@ -1,10 +1,10 @@
 package voxgigxenocantosdk
 
 import (
-	"github.com/voxgig-sdk/xeno-canto-sdk/core"
-	"github.com/voxgig-sdk/xeno-canto-sdk/entity"
-	"github.com/voxgig-sdk/xeno-canto-sdk/feature"
-	_ "github.com/voxgig-sdk/xeno-canto-sdk/utility"
+	"github.com/voxgig-sdk/xeno-canto-sdk/go/core"
+	"github.com/voxgig-sdk/xeno-canto-sdk/go/entity"
+	"github.com/voxgig-sdk/xeno-canto-sdk/go/feature"
+	_ "github.com/voxgig-sdk/xeno-canto-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/xeno-canto-sdk/core"
+	"github.com/voxgig-sdk/xeno-canto-sdk/go/core"
 )
 
 type LogFeature struct {

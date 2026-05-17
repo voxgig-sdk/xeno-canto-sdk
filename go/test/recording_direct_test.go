@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/xeno-canto-sdk"
-	"github.com/voxgig-sdk/xeno-canto-sdk/core"
+	sdk "github.com/voxgig-sdk/xeno-canto-sdk/go"
+	"github.com/voxgig-sdk/xeno-canto-sdk/go/core"
 )
 
 func TestRecordingDirect(t *testing.T) {

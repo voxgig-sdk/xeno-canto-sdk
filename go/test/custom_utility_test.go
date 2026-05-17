@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/xeno-canto-sdk"
+	sdk "github.com/voxgig-sdk/xeno-canto-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

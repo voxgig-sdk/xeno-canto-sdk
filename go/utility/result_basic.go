@@ -3,7 +3,7 @@ package utility
 import (
 	"fmt"
 
-	"github.com/voxgig-sdk/xeno-canto-sdk/core"
+	"github.com/voxgig-sdk/xeno-canto-sdk/go/core"
 )
 
 func resultBasicUtil(ctx *core.Context) *core.Result {

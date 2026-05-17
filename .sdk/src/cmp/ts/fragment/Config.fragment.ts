@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://xeno-canto.org/api/3',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

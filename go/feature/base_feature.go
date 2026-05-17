@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/xeno-canto-sdk/core"
+	"github.com/voxgig-sdk/xeno-canto-sdk/go/core"
 )
 
 type BaseFeature struct {
