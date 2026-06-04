@@ -20,9 +20,6 @@ class XenoCantoConfig
             ],
             "options" => [
                 "base" => "https://xeno-canto.org/api/3",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

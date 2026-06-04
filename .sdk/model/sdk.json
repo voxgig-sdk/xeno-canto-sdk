@@ -18,7 +18,15 @@
         ],
         "termsOfService": "https://xeno-canto.org/about/terms",
         "title": "Xeno-canto API",
-        "version": "3.0.0"
+        "version": "3.0.0",
+        "tagline": "Search a community-curated collection of bird and wildlife sound recordings from around the world",
+        "homepage": "https://xeno-canto.org/",
+        "docs_url": "https://xeno-canto.org/explore/api",
+        "about_md": "[Xeno-canto](https://xeno-canto.org/) is a collaborative project that collects, shares, and archives wildlife sound recordings, with a primary focus on bird vocalizations contributed by recordists worldwide. The API at `https://xeno-canto.org/api/3` exposes the catalogue programmatically as JSON.\n\nWhat you get from the API:\n\n- Search recordings by species, family, country, year, and other taxonomic or location filters\n- Recording metadata such as species name, recordist, location, date, and audio file URLs\n- Paginated JSON responses suitable for use in research, apps, and citizen-science tools\n\nThe v3 API requires a per-request API key parameter. CORS is enabled, so the endpoint can be called directly from browser-based applications. Most recordings are contributed under Creative Commons licences chosen by each recordist, so attribution and licence terms should be checked per recording.",
+        "entity_desc": {
+          "recording": "A single wildlife sound recording with metadata (species, recordist, location, date, audio URL) retrieved from the recordings query endpoint."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -26,7 +34,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "recording": {

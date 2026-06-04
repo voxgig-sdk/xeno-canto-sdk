@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'XENO_CANTO_TEST_RECORDING_ENTID': idmap,
     'XENO_CANTO_TEST_LIVE': 'FALSE',
     'XENO_CANTO_TEST_EXPLAIN': 'FALSE',
-    'XENO_CANTO_APIKEY': 'NONE',
   })
 
   idmap = env['XENO_CANTO_TEST_RECORDING_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new XenoCantoSDK(merge([
       {
-        apikey: env.XENO_CANTO_APIKEY,
       },
       extra
     ]))
