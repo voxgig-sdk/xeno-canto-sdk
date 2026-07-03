@@ -82,12 +82,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'XENOCANTO_TEST_RECORDING_ENTID': {},
     'XENOCANTO_TEST_LIVE': 'FALSE',
+    'XENOCANTO_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.XENOCANTO_TEST_LIVE
 
   if (live) {
     const client = new XenoCantoSDK({
+      apikey: env.XENOCANTO_APIKEY,
     })
 
     let idmap: any = env['XENOCANTO_TEST_RECORDING_ENTID']

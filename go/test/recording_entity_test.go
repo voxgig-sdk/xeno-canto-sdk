@@ -119,6 +119,7 @@ func recordingBasicSetup(extra map[string]any) *entityTestSetup {
 		"XENOCANTO_TEST_RECORDING_ENTID": idmap,
 		"XENOCANTO_TEST_LIVE":      "FALSE",
 		"XENOCANTO_TEST_EXPLAIN":   "FALSE",
+		"XENOCANTO_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["XENOCANTO_TEST_RECORDING_ENTID"])
@@ -129,6 +130,7 @@ func recordingBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["XENOCANTO_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["XENOCANTO_APIKEY"],
 			},
 			extra,
 		})

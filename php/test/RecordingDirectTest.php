@@ -68,12 +68,14 @@ function recording_direct_setup($mockres)
     $env = Runner::env_override([
         "XENOCANTO_TEST_RECORDING_ENTID" => [],
         "XENOCANTO_TEST_LIVE" => "FALSE",
+        "XENOCANTO_APIKEY" => "NONE",
     ]);
 
     $live = $env["XENOCANTO_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["XENOCANTO_APIKEY"],
         ];
         $client = new XenoCantoSDK($merged_opts);
         return [

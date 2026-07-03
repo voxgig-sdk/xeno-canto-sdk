@@ -83,6 +83,7 @@ def recording_basic_setup(extra)
     "XENOCANTO_TEST_RECORDING_ENTID" => idmap,
     "XENOCANTO_TEST_LIVE" => "FALSE",
     "XENOCANTO_TEST_EXPLAIN" => "FALSE",
+    "XENOCANTO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +95,7 @@ def recording_basic_setup(extra)
   if env["XENOCANTO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["XENOCANTO_APIKEY"],
       },
       extra || {},
     ])

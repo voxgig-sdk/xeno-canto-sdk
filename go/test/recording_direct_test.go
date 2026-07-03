@@ -93,12 +93,14 @@ func recordingDirectSetup(mockres any) *recordingDirectSetupResult {
 	env := envOverride(map[string]any{
 		"XENOCANTO_TEST_RECORDING_ENTID": map[string]any{},
 		"XENOCANTO_TEST_LIVE":    "FALSE",
+		"XENOCANTO_APIKEY":       "NONE",
 	})
 
 	live := env["XENOCANTO_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["XENOCANTO_APIKEY"],
 		}
 		client := sdk.NewXenoCantoSDK(mergedOpts)
 

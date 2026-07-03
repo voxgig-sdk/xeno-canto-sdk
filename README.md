@@ -1,20 +1,8 @@
 # XenoCanto SDK
 
-Search a community-curated collection of bird and wildlife sound recordings from around the world
+Xeno-canto API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Xeno-canto API
-
-[Xeno-canto](https://xeno-canto.org/) is a collaborative project that collects, shares, and archives wildlife sound recordings, with a primary focus on bird vocalizations contributed by recordists worldwide. The API at `https://xeno-canto.org/api/3` exposes the catalogue programmatically as JSON.
-
-What you get from the API:
-
-- Search recordings by species, family, country, year, and other taxonomic or location filters
-- Recording metadata such as species name, recordist, location, date, and audio file URLs
-- Paginated JSON responses suitable for use in research, apps, and citizen-science tools
-
-The v3 API requires a per-request API key parameter. CORS is enabled, so the endpoint can be called directly from browser-based applications. Most recordings are contributed under Creative Commons licences chosen by each recordist, so attribution and licence terms should be checked per recording.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install xeno-canto-sdk
 luarocks install xeno-canto-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { XenoCantoSDK } from 'xeno-canto'
 
-const client = new XenoCantoSDK({})
+const client = new XenoCantoSDK({
+  apikey: process.env.XENO-CANTO_APIKEY,
+})
 
 // List all recordings
 const recordings = await client.Recording().list()
+console.log(recordings.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Recording** | A single wildlife sound recording with metadata (species, recordist, location, date, audio URL) retrieved from the recordings query endpoint. | `/recordings` |
+| **Recording** |  | `/recordings` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from xenocanto_sdk import XenoCantoSDK
 
-client = XenoCantoSDK({})
+client = XenoCantoSDK({
+    "apikey": os.environ.get("XENO-CANTO_APIKEY"),
+})
 
 # List all recordings
-recordings, err = client.Recording(None).list(None, None)
+recordings, err = client.Recording().list()
+print(recordings)
 ```
 
 ### PHP
@@ -124,10 +118,13 @@ recordings, err = client.Recording(None).list(None, None)
 <?php
 require_once 'xenocanto_sdk.php';
 
-$client = new XenoCantoSDK([]);
+$client = new XenoCantoSDK([
+    "apikey" => getenv("XENO-CANTO_APIKEY"),
+]);
 
 // List all recordings
-[$recordings, $err] = $client->Recording(null)->list(null, null);
+[$recordings, $err] = $client->Recording()->list();
+print_r($recordings);
 ```
 
 ### Golang
@@ -135,10 +132,13 @@ $client = new XenoCantoSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/xeno-canto-sdk/go"
 
-client := sdk.NewXenoCantoSDK(map[string]any{})
+client := sdk.NewXenoCantoSDK(map[string]any{
+    "apikey": os.Getenv("XENO-CANTO_APIKEY"),
+})
 
 // List all recordings
 recordings, err := client.Recording(nil).List(nil, nil)
+fmt.Println(recordings)
 ```
 
 ### Ruby
@@ -146,10 +146,13 @@ recordings, err := client.Recording(nil).List(nil, nil)
 ```ruby
 require_relative "XenoCanto_sdk"
 
-client = XenoCantoSDK.new({})
+client = XenoCantoSDK.new({
+  "apikey" => ENV["XENO-CANTO_APIKEY"],
+})
 
 # List all recordings
-recordings, err = client.Recording(nil).list(nil, nil)
+recordings, err = client.Recording().list
+puts recordings
 ```
 
 ### Lua
@@ -157,10 +160,13 @@ recordings, err = client.Recording(nil).list(nil, nil)
 ```lua
 local sdk = require("xeno-canto_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("XENO-CANTO_APIKEY"),
+})
 
 -- List all recordings
-local recordings, err = client:Recording(nil):list(nil, nil)
+local recordings, err = client:Recording():list()
+print(recordings)
 ```
 
 ## Unit testing in offline mode
@@ -179,25 +185,21 @@ const result = await client.Recording().load({ id: 'test01' })
 ### Python
 
 ```python
-client = XenoCantoSDK.test(None, None)
-result, err = client.Recording(None).load(
-    {"id": "test01"}, None
-)
+client = XenoCantoSDK.test()
+result, err = client.Recording().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = XenoCantoSDK::test(null, null);
-[$result, $err] = $client->Recording(null)->load(
-    ["id" => "test01"], null
-);
+$client = XenoCantoSDK::test();
+[$result, $err] = $client->Recording()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Recording(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -206,19 +208,15 @@ result, err := client.Recording(nil).Load(
 ### Ruby
 
 ```ruby
-client = XenoCantoSDK.test(nil, nil)
-result, err = client.Recording(nil).load(
-  { "id" => "test01" }, nil
-)
+client = XenoCantoSDK.test
+result, err = client.Recording().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Recording(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Recording():load({ id = "test01" })
 ```
 
 ## How it works
@@ -322,11 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Xeno-canto API
-
-- Upstream: [https://xeno-canto.org/](https://xeno-canto.org/)
-- API docs: [https://xeno-canto.org/explore/api](https://xeno-canto.org/explore/api)
 
 ---
 
