@@ -10,7 +10,7 @@ The Python SDK for the XenoCanto API — an entity-oriented client following Pyt
 
 ## Install
 ```bash
-pip install xeno-canto-sdk
+pip install voxgig-sdk-xeno-canto
 ```
 
 Or install from source:

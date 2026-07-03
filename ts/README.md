@@ -10,7 +10,7 @@ The TypeScript SDK for the XenoCanto API — a type-safe, entity-oriented client
 
 ## Install
 ```bash
-npm install xeno-canto
+npm install @voxgig-sdk/xeno-canto
 ```
 ## Tutorial: your first API call
 

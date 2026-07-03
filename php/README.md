@@ -10,7 +10,7 @@ The PHP SDK for the XenoCanto API — an entity-oriented client using PHP conven
 
 ## Install
 ```bash
-composer require voxgig/xeno-canto-sdk
+composer require voxgig-sdk/xeno-canto
 ```
 
 

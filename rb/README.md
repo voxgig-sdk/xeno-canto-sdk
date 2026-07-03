@@ -10,13 +10,13 @@ The Ruby SDK for the XenoCanto API — an entity-oriented client using idiomatic
 
 ## Install
 ```bash
-gem install xeno-canto-sdk
+gem install voxgig-sdk-xeno-canto
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "xeno-canto-sdk"
+gem "voxgig-sdk-xeno-canto"
 ```
 
 Then run:

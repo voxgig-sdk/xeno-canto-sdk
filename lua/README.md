@@ -10,7 +10,7 @@ The Lua SDK for the XenoCanto API — an entity-oriented client using Lua conven
 
 ## Install
 ```bash
-luarocks install xeno-canto-sdk
+luarocks install voxgig-sdk-xeno-canto
 ```
 
 If the module is not yet published, add the source directory to
