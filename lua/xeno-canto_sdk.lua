@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:recording():list() / client:recording():load({ id = ... })
-function XenoCantoSDK:recording(data)
+-- Idiomatic facade: client:Recording():list() / client:Recording():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function XenoCantoSDK:Recording(data)
   local EntityMod = require("entity.recording_entity")
   if data == nil then
     if self._recording == nil then
@@ -253,12 +254,6 @@ function XenoCantoSDK:recording(data)
     end
     return self._recording
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:recording() instead.
-function XenoCantoSDK:Recording(data)
-  local EntityMod = require("entity.recording_entity")
   return EntityMod.new(self, data)
 end
 

@@ -86,7 +86,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## RecordingEntity
 
 ```php
-$recording = $client->recording();
+$recording = $client->Recording();
 ```
 
 ### Fields
@@ -138,7 +138,7 @@ $recording = $client->recording();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->recording()->list([]);
+$results = $client->Recording()->list([]);
 ```
 
 ### Common Methods

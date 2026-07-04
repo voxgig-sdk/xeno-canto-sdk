@@ -208,13 +208,7 @@ class XenoCantoSDK
   end
 
 
-  # Idiomatic facade: client.recording.list / client.recording.load({ "id" => ... })
-  def recording
-    require_relative 'entity/recording_entity'
-    @recording ||= RecordingEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.recording instead.
+  # Canonical facade: client.Recording.list / client.Recording.load({ "id" => ... })
   def Recording(data = nil)
     require_relative 'entity/recording_entity'
     RecordingEntity.new(self, data)

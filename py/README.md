@@ -34,14 +34,16 @@ client = XenoCantoSDK({
 })
 ```
 
-### 2. List recordings
+### 2. List recording records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.recording.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    recordings = client.Recording().list({})
+    for recording in recordings:
+        print(recording)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -89,8 +91,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = XenoCantoSDK.test()
 
-result = client.recording.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+recording = client.Recording().load({"id": "test01"})
+# recording contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -261,7 +264,7 @@ API path: `/recordings`
 
 ### Recording
 
-Create an instance: `const recording = client.recording`
+Create an instance: `recording = client.Recording()`
 
 #### Operations
 
@@ -313,8 +316,8 @@ Create an instance: `const recording = client.recording`
 
 #### Example: List
 
-```ts
-const recordings = await client.recording.list()
+```python
+recordings = client.Recording().list({})
 ```
 
 
@@ -388,7 +391,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-recording = client.recording
+recording = client.Recording()
 recording.load({"id": "example_id"})
 
 # recording.data_get() now returns the loaded recording data

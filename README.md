@@ -28,9 +28,11 @@ const client = new XenoCantoSDK({
   apikey: process.env.XENO_CANTO_APIKEY,
 })
 
-// List all recordings
-const recordings = await client.recording.list()
-console.log(recordings.data)
+// List all recordings (returns Recording[])
+const recordings = await client.Recording().list()
+for (const recording of recordings) {
+  console.log(recording)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -88,9 +90,10 @@ client = XenoCantoSDK({
     "apikey": os.environ.get("XENO_CANTO_APIKEY"),
 })
 
-# List all recordings
-recordings = client.recording.list()
-print(recordings)
+# List all recordings (returns a list, raises on error)
+recordings = client.Recording().list({})
+for recording in recordings:
+    print(recording)
 ```
 
 ### PHP
@@ -103,8 +106,8 @@ $client = new XenoCantoSDK([
     "apikey" => getenv("XENO_CANTO_APIKEY"),
 ]);
 
-// List all recordings (throws on error)
-$recordings = $client->recording()->list();
+// List all recordings (returns an array; throws on error)
+$recordings = $client->Recording()->list();
 print_r($recordings);
 ```
 
@@ -131,8 +134,8 @@ client = XenoCantoSDK.new({
   "apikey" => ENV["XENO_CANTO_APIKEY"],
 })
 
-# List all recordings
-recordings = client.recording.list
+# List all recordings (returns an Array; raises on error)
+recordings = client.Recording.list
 puts recordings
 ```
 
@@ -146,7 +149,7 @@ local client = sdk.new({
 })
 
 -- List all recordings
-local recordings, err = client:recording():list()
+local recordings, err = client:Recording():list()
 print(recordings)
 ```
 
@@ -159,22 +162,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = XenoCantoSDK.test()
-const result = await client.recording.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const recording = await client.Recording().load({ id: 'test01' })
+// recording is a bare Recording populated with mock data
+console.log(recording)
 ```
 
 ### Python
 
 ```python
 client = XenoCantoSDK.test()
-result = client.recording.load({"id": "test01"})
+recording = client.Recording().load({"id": "test01"})
+print(recording)
 ```
 
 ### PHP
 
 ```php
-$client = XenoCantoSDK::test();
-$result = $client->recording()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = XenoCantoSDK::test([
+    "entity" => ["recording" => ["test01" => ["id" => "test01"]]],
+]);
+$recording = $client->Recording()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -189,15 +197,18 @@ result, err := client.Recording(nil).Load(
 ### Ruby
 
 ```ruby
-client = XenoCantoSDK.test
-result = client.recording.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = XenoCantoSDK.test({
+  "entity" => { "recording" => { "test01" => { "id" => "test01" } } },
+})
+recording = client.Recording.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:recording():load({ id = "test01" })
+local result, err = client:Recording():load({ id = "test01" })
 ```
 
 ## How it works
@@ -245,6 +256,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

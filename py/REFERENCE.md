@@ -81,7 +81,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## RecordingEntity
 
 ```python
-recording = client.recording
+recording = client.Recording()
 ```
 
 ### Fields
@@ -133,7 +133,9 @@ recording = client.recording
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.recording.list({})
+results = client.Recording().list({})
+for recording in results:
+    print(recording)
 ```
 
 ### Common Methods

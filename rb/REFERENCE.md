@@ -87,7 +87,7 @@ same parameters as `direct()`. Raises on error.
 ## RecordingEntity
 
 ```ruby
-recording = client.recording
+recording = client.Recording
 ```
 
 ### Fields
@@ -139,7 +139,7 @@ recording = client.recording
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.recording.list(nil)
+results = client.Recording.list(nil)
 ```
 
 ### Common Methods

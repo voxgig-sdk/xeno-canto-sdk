@@ -31,18 +31,16 @@ $client = new XenoCantoSDK([
 ]);
 ```
 
-### 2. List recordings
+### 2. List recording records
 
 ```php
 try {
-    $result = $client->recording()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Recording records — iterate directly.
+    $recordings = $client->Recording()->list();
+    foreach ($recordings as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -88,13 +86,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = XenoCantoSDK::test();
+$client = XenoCantoSDK::test([
+    "entity" => ["recording" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->recording()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$recording = $client->Recording()->load(["id" => "test01"]);
+print_r($recording);
 ```
 
 ### Use a custom fetch function
@@ -268,7 +270,7 @@ API path: `/recordings`
 
 ### Recording
 
-Create an instance: `const recording = client.recording`
+Create an instance: `$recording = $client->Recording();`
 
 #### Operations
 
@@ -320,8 +322,9 @@ Create an instance: `const recording = client.recording`
 
 #### Example: List
 
-```ts
-const recordings = await client.recording.list()
+```php
+// list() returns an array of Recording records (throws on error).
+$recordings = $client->Recording()->list();
 ```
 
 
@@ -396,7 +399,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$recording = $client->recording();
+$recording = $client->Recording();
 $recording->load(["id" => "example_id"]);
 
 // $recording->dataGet() now returns the loaded recording data

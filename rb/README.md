@@ -30,16 +30,14 @@ client = XenoCantoSDK.new({
 })
 ```
 
-### 2. List recordings
+### 2. List recording records
 
 ```ruby
 begin
-  result = client.recording.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Recording records — iterate directly.
+  recordings = client.Recording.list
+  recordings.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -87,13 +85,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = XenoCantoSDK.test
+client = XenoCantoSDK.test({
+  "entity" => { "recording" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.recording.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+recording = client.Recording.load({ "id" => "test01" })
+puts recording
 ```
 
 ### Use a custom fetch function
@@ -263,7 +265,7 @@ API path: `/recordings`
 
 ### Recording
 
-Create an instance: `const recording = client.recording`
+Create an instance: `recording = client.Recording`
 
 #### Operations
 
@@ -315,8 +317,9 @@ Create an instance: `const recording = client.recording`
 
 #### Example: List
 
-```ts
-const recordings = await client.recording.list()
+```ruby
+# list returns an Array of Recording records (raises on error).
+recordings = client.Recording.list
 ```
 
 
@@ -391,7 +394,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-recording = client.recording
+recording = client.Recording
 recording.load({ "id" => "example_id" })
 
 # recording.data_get now returns the loaded recording data

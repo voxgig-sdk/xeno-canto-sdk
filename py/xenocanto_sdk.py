@@ -220,25 +220,15 @@ class XenoCantoSDK:
         }
 
 
-    @property
-    def recording(self):
-        """Idiomatic facade: client.recording.list() / client.recording.load({"id": ...})."""
-        from entity.recording_entity import RecordingEntity
-        cached = getattr(self, "_recording", None)
-        if cached is None:
-            cached = RecordingEntity(self, None)
-            self._recording = cached
-        return cached
-
-    def Recording(self, data=None):
-        # Deprecated: use client.recording instead.
+    def Recording(self, data=None) -> "RecordingEntity":
+        """Entity factory: client.Recording().list({}) / client.Recording().load({"id": ...})."""
         from entity.recording_entity import RecordingEntity
         return RecordingEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "XenoCantoSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class XenoCantoSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.recording_entity import RecordingEntity

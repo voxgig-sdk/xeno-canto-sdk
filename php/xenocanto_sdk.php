@@ -233,10 +233,10 @@ class XenoCantoSDK
 
     private $_recording = null;
 
-    // Idiomatic facade: $client->recording()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Recording() (PHP method
-    // names are case-insensitive).
-    public function recording($data = null)
+    // Canonical facade: $client->Recording()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->recording()
+    // resolves here too.
+    public function Recording($data = null)
     {
         require_once __DIR__ . '/entity/recording_entity.php';
         if ($data === null) {

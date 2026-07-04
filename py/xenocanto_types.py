@@ -4,91 +4,93 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Recording:
-    also: Optional[list] = None
-    alt: Optional[str] = None
-    animal_seen: Optional[str] = None
-    auto: Optional[str] = None
-    cnt: Optional[str] = None
-    date: Optional[str] = None
-    dvc: Optional[str] = None
-    en: Optional[str] = None
-    file: Optional[str] = None
-    file_name: Optional[str] = None
-    gen: Optional[str] = None
-    grp: Optional[str] = None
-    id: Optional[str] = None
-    lat: Optional[str] = None
-    length: Optional[str] = None
-    lic: Optional[str] = None
-    loc: Optional[str] = None
-    lon: Optional[str] = None
-    method: Optional[str] = None
-    mic: Optional[str] = None
-    osci: Optional[dict] = None
-    playback_used: Optional[str] = None
-    q: Optional[str] = None
-    rec: Optional[str] = None
-    regnr: Optional[str] = None
-    rmk: Optional[str] = None
-    sex: Optional[str] = None
-    smp: Optional[str] = None
-    sono: Optional[dict] = None
-    sp: Optional[str] = None
-    ssp: Optional[str] = None
-    stage: Optional[str] = None
-    temp: Optional[str] = None
-    time: Optional[str] = None
-    type: Optional[str] = None
-    uploaded: Optional[str] = None
-    url: Optional[str] = None
+class Recording(TypedDict, total=False):
+    also: list
+    alt: str
+    animal_seen: str
+    auto: str
+    cnt: str
+    date: str
+    dvc: str
+    en: str
+    file: str
+    file_name: str
+    gen: str
+    grp: str
+    id: str
+    lat: str
+    length: str
+    lic: str
+    loc: str
+    lon: str
+    method: str
+    mic: str
+    osci: dict
+    playback_used: str
+    q: str
+    rec: str
+    regnr: str
+    rmk: str
+    sex: str
+    smp: str
+    sono: dict
+    sp: str
+    ssp: str
+    stage: str
+    temp: str
+    time: str
+    type: str
+    uploaded: str
+    url: str
 
 
-@dataclass
-class RecordingListMatch:
-    also: Optional[list] = None
-    alt: Optional[str] = None
-    animal_seen: Optional[str] = None
-    auto: Optional[str] = None
-    cnt: Optional[str] = None
-    date: Optional[str] = None
-    dvc: Optional[str] = None
-    en: Optional[str] = None
-    file: Optional[str] = None
-    file_name: Optional[str] = None
-    gen: Optional[str] = None
-    grp: Optional[str] = None
-    id: Optional[str] = None
-    lat: Optional[str] = None
-    length: Optional[str] = None
-    lic: Optional[str] = None
-    loc: Optional[str] = None
-    lon: Optional[str] = None
-    method: Optional[str] = None
-    mic: Optional[str] = None
-    osci: Optional[dict] = None
-    playback_used: Optional[str] = None
-    q: Optional[str] = None
-    rec: Optional[str] = None
-    regnr: Optional[str] = None
-    rmk: Optional[str] = None
-    sex: Optional[str] = None
-    smp: Optional[str] = None
-    sono: Optional[dict] = None
-    sp: Optional[str] = None
-    ssp: Optional[str] = None
-    stage: Optional[str] = None
-    temp: Optional[str] = None
-    time: Optional[str] = None
-    type: Optional[str] = None
-    uploaded: Optional[str] = None
-    url: Optional[str] = None
-
+class RecordingListMatch(TypedDict, total=False):
+    also: list
+    alt: str
+    animal_seen: str
+    auto: str
+    cnt: str
+    date: str
+    dvc: str
+    en: str
+    file: str
+    file_name: str
+    gen: str
+    grp: str
+    id: str
+    lat: str
+    length: str
+    lic: str
+    loc: str
+    lon: str
+    method: str
+    mic: str
+    osci: dict
+    playback_used: str
+    q: str
+    rec: str
+    regnr: str
+    rmk: str
+    sex: str
+    smp: str
+    sono: dict
+    sp: str
+    ssp: str
+    stage: str
+    temp: str
+    time: str
+    type: str
+    uploaded: str
+    url: str
