@@ -9,12 +9,9 @@ The Lua SDK for the XenoCanto API — an entity-oriented client using Lua conven
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-xeno-canto
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/xeno-canto-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -32,14 +29,14 @@ loading a specific record.
 local sdk = require("xeno-canto_sdk")
 
 local client = sdk.new({
-  apikey = os.getenv("XENO-CANTO_APIKEY"),
+  apikey = os.getenv("XENO_CANTO_APIKEY"),
 })
 ```
 
 ### 2. List recordings
 
 ```lua
-local result, err = client:Recording():list()
+local result, err = client:recording():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +90,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:XenoCanto():load({ id = "test01" })
+local result, err = client:recording():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +123,8 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-XENO-CANTO_TEST_LIVE=TRUE
-XENO-CANTO_APIKEY=<your-key>
+XENO_CANTO_TEST_LIVE=TRUE
+XENO_CANTO_APIKEY=<your-key>
 ```
 
 Then run:
@@ -263,7 +260,7 @@ API path: `/recordings`
 
 ### Recording
 
-Create an instance: `const recording = client.Recording()`
+Create an instance: `const recording = client.recording`
 
 #### Operations
 
@@ -316,7 +313,7 @@ Create an instance: `const recording = client.Recording()`
 #### Example: List
 
 ```ts
-const recordings = await client.Recording().list()
+const recordings = await client.recording.list()
 ```
 
 
@@ -391,11 +388,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local recording = client:recording()
+recording:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- recording:data_get() now returns the loaded recording data
+-- recording:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

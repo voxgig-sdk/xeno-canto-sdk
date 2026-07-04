@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:recording():list() / client:recording():load({ id = ... })
+function XenoCantoSDK:recording(data)
+  local EntityMod = require("entity.recording_entity")
+  if data == nil then
+    if self._recording == nil then
+      self._recording = EntityMod.new(self, nil)
+    end
+    return self._recording
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:recording() instead.
 function XenoCantoSDK:Recording(data)
   local EntityMod = require("entity.recording_entity")
   return EntityMod.new(self, data)

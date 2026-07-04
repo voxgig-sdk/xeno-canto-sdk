@@ -84,7 +84,7 @@ same parameters as `direct()`.
 ## RecordingEntity
 
 ```lua
-local recording = client:Recording(nil)
+local recording = client:recording(nil)
 ```
 
 ### Fields
@@ -136,7 +136,7 @@ local recording = client:Recording(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Recording():list()
+local results, err = client:recording():list()
 ```
 
 ### Common Methods

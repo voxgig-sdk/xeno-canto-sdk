@@ -45,6 +45,7 @@ class RecordingEntity
     end
   end
 
+  # @return [Recording, Hash] the current Recording data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class RecordingEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Recording fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class RecordingEntity
   
 
   
+  # List Recording items matching the given filter.
+  #
+  # @param reqmatch [RecordingListMatch, Hash, nil] match filter (any subset of Recording fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Recording>, Array] the matching Recording items; raises XenoCantoError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

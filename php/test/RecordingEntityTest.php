@@ -50,8 +50,7 @@ class RecordingEntityTest extends TestCase
         $recording_ref01_ent = $client->Recording(null);
         $recording_ref01_match = [];
 
-        [$recording_ref01_list_result, $err] = $recording_ref01_ent->list($recording_ref01_match, null);
-        $this->assertNull($err);
+        $recording_ref01_list_result = $recording_ref01_ent->list($recording_ref01_match, null);
         $this->assertIsArray($recording_ref01_list_result);
 
     }

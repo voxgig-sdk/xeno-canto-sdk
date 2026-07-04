@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Recording,
+  RecordingListMatch,
+} from '../XenoCantoTypes'
 
 // TODO: needs Entity superclass
-class RecordingEntity extends XenoCantoEntityBase {
+class RecordingEntity extends XenoCantoEntityBase<Recording> {
 
   constructor(client: XenoCantoSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class RecordingEntity extends XenoCantoEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: RecordingListMatch, ctrl?: Control): Promise<Recording[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class RecordingEntity extends XenoCantoEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Recording[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

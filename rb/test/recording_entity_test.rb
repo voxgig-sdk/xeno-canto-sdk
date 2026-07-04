@@ -43,8 +43,7 @@ class RecordingEntityTest < Minitest::Test
     recording_ref01_ent = client.Recording(nil)
     recording_ref01_match = {}
 
-    recording_ref01_list_result, err = recording_ref01_ent.list(recording_ref01_match, nil)
-    assert_nil err
+    recording_ref01_list_result = recording_ref01_ent.list(recording_ref01_match, nil)
     assert recording_ref01_list_result.is_a?(Array)
 
   end

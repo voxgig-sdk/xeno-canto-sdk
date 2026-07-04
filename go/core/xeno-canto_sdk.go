@@ -245,6 +245,9 @@ func (sdk *XenoCantoSDK) Direct(fetchargs map[string]any) (map[string]any, error
 }
 
 
+// Recording returns a Recording entity bound to this client.
+// Idiomatic usage: client.Recording(nil).List(nil, nil) or
+// client.Recording(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *XenoCantoSDK) Recording(data map[string]any) XenoCantoEntity {
 	return NewRecordingEntityFunc(sdk, data)
 }

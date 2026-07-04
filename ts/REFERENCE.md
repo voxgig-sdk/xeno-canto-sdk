@@ -110,7 +110,7 @@ Alias for `XenoCantoSDK.test()`.
 ## RecordingEntity
 
 ```ts
-const recording = client.Recording()
+const recording = client.recording
 ```
 
 ### Fields
@@ -162,7 +162,7 @@ const recording = client.Recording()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Recording().list()
+const results = await client.recording.list()
 ```
 
 ### Common Methods

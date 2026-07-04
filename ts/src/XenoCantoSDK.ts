@@ -2,6 +2,8 @@
 
 import { RecordingEntity } from './entity/RecordingEntity'
 
+export type * from './XenoCantoTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class XenoCantoSDK {
 
 
 
+  _recording?: RecordingEntity
+
+  // Idiomatic facade: `client.recording.list()` / `client.recording.load({ id })`.
+  get recording(): RecordingEntity {
+    return (this._recording ??= new RecordingEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.recording` instead. */
   Recording(data?: any) {
     const self = this
     return new RecordingEntity(self,data)
