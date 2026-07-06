@@ -161,7 +161,7 @@ Recording = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Recording#list (any subset of Recording fields).
+# Request payload for Recording#list.
 #
 # @!attribute [rw] also
 #   @return [Array, nil]

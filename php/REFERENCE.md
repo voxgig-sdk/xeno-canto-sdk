@@ -8,7 +8,7 @@ Complete API reference for the XenoCanto PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/xeno-canto_sdk.php';
+require_once __DIR__ . '/xenocanto_sdk.php';
 
 $client = new XenoCantoSDK($options);
 ```
@@ -46,11 +46,11 @@ $client = XenoCantoSDK::test();
 
 Create a new `RecordingEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): XenoCantoUtility`
 
 Return a copy of the SDK utility object.
 
@@ -93,69 +93,69 @@ $recording = $client->Recording();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `also` | ``$ARRAY`` | No |  |
-| `alt` | ``$STRING`` | No |  |
-| `animal_seen` | ``$STRING`` | No |  |
-| `auto` | ``$STRING`` | No |  |
-| `cnt` | ``$STRING`` | No |  |
-| `date` | ``$STRING`` | No |  |
-| `dvc` | ``$STRING`` | No |  |
-| `en` | ``$STRING`` | No |  |
-| `file` | ``$STRING`` | No |  |
-| `file_name` | ``$STRING`` | No |  |
-| `gen` | ``$STRING`` | No |  |
-| `grp` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `lat` | ``$STRING`` | No |  |
-| `length` | ``$STRING`` | No |  |
-| `lic` | ``$STRING`` | No |  |
-| `loc` | ``$STRING`` | No |  |
-| `lon` | ``$STRING`` | No |  |
-| `method` | ``$STRING`` | No |  |
-| `mic` | ``$STRING`` | No |  |
-| `osci` | ``$OBJECT`` | No |  |
-| `playback_used` | ``$STRING`` | No |  |
-| `q` | ``$STRING`` | No |  |
-| `rec` | ``$STRING`` | No |  |
-| `regnr` | ``$STRING`` | No |  |
-| `rmk` | ``$STRING`` | No |  |
-| `sex` | ``$STRING`` | No |  |
-| `smp` | ``$STRING`` | No |  |
-| `sono` | ``$OBJECT`` | No |  |
-| `sp` | ``$STRING`` | No |  |
-| `ssp` | ``$STRING`` | No |  |
-| `stage` | ``$STRING`` | No |  |
-| `temp` | ``$STRING`` | No |  |
-| `time` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `uploaded` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `also` | `array` | No |  |
+| `alt` | `string` | No |  |
+| `animal_seen` | `string` | No |  |
+| `auto` | `string` | No |  |
+| `cnt` | `string` | No |  |
+| `date` | `string` | No |  |
+| `dvc` | `string` | No |  |
+| `en` | `string` | No |  |
+| `file` | `string` | No |  |
+| `file_name` | `string` | No |  |
+| `gen` | `string` | No |  |
+| `grp` | `string` | No |  |
+| `id` | `string` | No |  |
+| `lat` | `string` | No |  |
+| `length` | `string` | No |  |
+| `lic` | `string` | No |  |
+| `loc` | `string` | No |  |
+| `lon` | `string` | No |  |
+| `method` | `string` | No |  |
+| `mic` | `string` | No |  |
+| `osci` | `array` | No |  |
+| `playback_used` | `string` | No |  |
+| `q` | `string` | No |  |
+| `rec` | `string` | No |  |
+| `regnr` | `string` | No |  |
+| `rmk` | `string` | No |  |
+| `sex` | `string` | No |  |
+| `smp` | `string` | No |  |
+| `sono` | `array` | No |  |
+| `sp` | `string` | No |  |
+| `ssp` | `string` | No |  |
+| `stage` | `string` | No |  |
+| `temp` | `string` | No |  |
+| `time` | `string` | No |  |
+| `type` | `string` | No |  |
+| `uploaded` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Recording()->list([]);
+$results = $client->Recording()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -164,7 +164,7 @@ Set the entity match criteria.
 Create a new `RecordingEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

@@ -8,7 +8,7 @@ Complete API reference for the XenoCanto Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'xeno-canto_sdk'
+require_relative 'XenoCanto_sdk'
 
 client = XenoCantoSDK.new(options)
 ```
@@ -94,52 +94,52 @@ recording = client.Recording
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `also` | ``$ARRAY`` | No |  |
-| `alt` | ``$STRING`` | No |  |
-| `animal_seen` | ``$STRING`` | No |  |
-| `auto` | ``$STRING`` | No |  |
-| `cnt` | ``$STRING`` | No |  |
-| `date` | ``$STRING`` | No |  |
-| `dvc` | ``$STRING`` | No |  |
-| `en` | ``$STRING`` | No |  |
-| `file` | ``$STRING`` | No |  |
-| `file_name` | ``$STRING`` | No |  |
-| `gen` | ``$STRING`` | No |  |
-| `grp` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `lat` | ``$STRING`` | No |  |
-| `length` | ``$STRING`` | No |  |
-| `lic` | ``$STRING`` | No |  |
-| `loc` | ``$STRING`` | No |  |
-| `lon` | ``$STRING`` | No |  |
-| `method` | ``$STRING`` | No |  |
-| `mic` | ``$STRING`` | No |  |
-| `osci` | ``$OBJECT`` | No |  |
-| `playback_used` | ``$STRING`` | No |  |
-| `q` | ``$STRING`` | No |  |
-| `rec` | ``$STRING`` | No |  |
-| `regnr` | ``$STRING`` | No |  |
-| `rmk` | ``$STRING`` | No |  |
-| `sex` | ``$STRING`` | No |  |
-| `smp` | ``$STRING`` | No |  |
-| `sono` | ``$OBJECT`` | No |  |
-| `sp` | ``$STRING`` | No |  |
-| `ssp` | ``$STRING`` | No |  |
-| `stage` | ``$STRING`` | No |  |
-| `temp` | ``$STRING`` | No |  |
-| `time` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `uploaded` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `also` | `Array` | No |  |
+| `alt` | `String` | No |  |
+| `animal_seen` | `String` | No |  |
+| `auto` | `String` | No |  |
+| `cnt` | `String` | No |  |
+| `date` | `String` | No |  |
+| `dvc` | `String` | No |  |
+| `en` | `String` | No |  |
+| `file` | `String` | No |  |
+| `file_name` | `String` | No |  |
+| `gen` | `String` | No |  |
+| `grp` | `String` | No |  |
+| `id` | `String` | No |  |
+| `lat` | `String` | No |  |
+| `length` | `String` | No |  |
+| `lic` | `String` | No |  |
+| `loc` | `String` | No |  |
+| `lon` | `String` | No |  |
+| `method` | `String` | No |  |
+| `mic` | `String` | No |  |
+| `osci` | `Hash` | No |  |
+| `playback_used` | `String` | No |  |
+| `q` | `String` | No |  |
+| `rec` | `String` | No |  |
+| `regnr` | `String` | No |  |
+| `rmk` | `String` | No |  |
+| `sex` | `String` | No |  |
+| `smp` | `String` | No |  |
+| `sono` | `Hash` | No |  |
+| `sp` | `String` | No |  |
+| `ssp` | `String` | No |  |
+| `stage` | `String` | No |  |
+| `temp` | `String` | No |  |
+| `time` | `String` | No |  |
+| `type` | `String` | No |  |
+| `uploaded` | `String` | No |  |
+| `url` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Recording.list(nil)
+results = client.Recording.list
 ```
 
 ### Common Methods

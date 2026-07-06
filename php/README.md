@@ -4,6 +4,8 @@
 
 The PHP SDK for the XenoCanto API — an entity-oriented client using PHP conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->Recording()` — with named operations (`list`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -38,10 +40,41 @@ try {
     // list() returns an array of Recording records — iterate directly.
     $recordings = $client->Recording()->list();
     foreach ($recordings as $item) {
-        echo $item["id"] . " " . $item["name"] . "\n";
+        echo $item["id"] . " " . $item["also"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
+}
+```
+
+
+## Error handling
+
+Entity operations throw a `\Throwable` on failure, so wrap them in
+`try` / `catch`:
+
+```php
+try {
+    $recordings = $client->Recording()->list();
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
+`direct()` does **not** throw — it returns the result array. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```php
+$result = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example_id"],
+]);
+
+if (! $result["ok"]) {
+    $err = $result["err"] ?? null;
+    echo "request failed: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -65,7 +98,10 @@ if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
 } else {
-    echo "Error: " . $result["err"]->getMessage();
+    // On an HTTP error status there is no err (only a transport failure sets
+    // it), so fall back to the status code.
+    $err = $result["err"] ?? null;
+    echo "Error: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -86,16 +122,13 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = XenoCantoSDK::test([
-    "entity" => ["recording" => ["test01" => ["id" => "test01"]]],
-]);
+$client = XenoCantoSDK::test();
 
-// load() returns the bare mock record (throws on error).
-$recording = $client->Recording()->load(["id" => "test01"]);
+// Entity ops return the bare mock record (throws on error).
+$recording = $client->Recording()->list();
 print_r($recording);
 ```
 
@@ -185,11 +218,7 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `($reqmatch, $ctrl): array` | List entities matching the criteria. |
-| `create` | `($reqdata, $ctrl): array` | Create a new entity. |
-| `update` | `($reqdata, $ctrl): array` | Update an existing entity. |
-| `remove` | `($reqmatch, $ctrl): array` | Remove an entity. |
+| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -282,43 +311,43 @@ Create an instance: `$recording = $client->Recording();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `also` | ``$ARRAY`` |  |
-| `alt` | ``$STRING`` |  |
-| `animal_seen` | ``$STRING`` |  |
-| `auto` | ``$STRING`` |  |
-| `cnt` | ``$STRING`` |  |
-| `date` | ``$STRING`` |  |
-| `dvc` | ``$STRING`` |  |
-| `en` | ``$STRING`` |  |
-| `file` | ``$STRING`` |  |
-| `file_name` | ``$STRING`` |  |
-| `gen` | ``$STRING`` |  |
-| `grp` | ``$STRING`` |  |
-| `id` | ``$STRING`` |  |
-| `lat` | ``$STRING`` |  |
-| `length` | ``$STRING`` |  |
-| `lic` | ``$STRING`` |  |
-| `loc` | ``$STRING`` |  |
-| `lon` | ``$STRING`` |  |
-| `method` | ``$STRING`` |  |
-| `mic` | ``$STRING`` |  |
-| `osci` | ``$OBJECT`` |  |
-| `playback_used` | ``$STRING`` |  |
-| `q` | ``$STRING`` |  |
-| `rec` | ``$STRING`` |  |
-| `regnr` | ``$STRING`` |  |
-| `rmk` | ``$STRING`` |  |
-| `sex` | ``$STRING`` |  |
-| `smp` | ``$STRING`` |  |
-| `sono` | ``$OBJECT`` |  |
-| `sp` | ``$STRING`` |  |
-| `ssp` | ``$STRING`` |  |
-| `stage` | ``$STRING`` |  |
-| `temp` | ``$STRING`` |  |
-| `time` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
-| `uploaded` | ``$STRING`` |  |
-| `url` | ``$STRING`` |  |
+| `also` | `array` |  |
+| `alt` | `string` |  |
+| `animal_seen` | `string` |  |
+| `auto` | `string` |  |
+| `cnt` | `string` |  |
+| `date` | `string` |  |
+| `dvc` | `string` |  |
+| `en` | `string` |  |
+| `file` | `string` |  |
+| `file_name` | `string` |  |
+| `gen` | `string` |  |
+| `grp` | `string` |  |
+| `id` | `string` |  |
+| `lat` | `string` |  |
+| `length` | `string` |  |
+| `lic` | `string` |  |
+| `loc` | `string` |  |
+| `lon` | `string` |  |
+| `method` | `string` |  |
+| `mic` | `string` |  |
+| `osci` | `array` |  |
+| `playback_used` | `string` |  |
+| `q` | `string` |  |
+| `rec` | `string` |  |
+| `regnr` | `string` |  |
+| `rmk` | `string` |  |
+| `sex` | `string` |  |
+| `smp` | `string` |  |
+| `sono` | `array` |  |
+| `sp` | `string` |  |
+| `ssp` | `string` |  |
+| `stage` | `string` |  |
+| `temp` | `string` |  |
+| `time` | `string` |  |
+| `type` | `string` |  |
+| `uploaded` | `string` |  |
+| `url` | `string` |  |
 
 #### Example: List
 
@@ -328,12 +357,16 @@ $recordings = $client->Recording()->list();
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -350,8 +383,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return array.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -395,15 +429,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
 $recording = $client->Recording();
-$recording->load(["id" => "example_id"]);
+$recording->list();
 
-// $recording->dataGet() now returns the loaded recording data
-// $recording->matchGet() returns the last match criteria
+// $recording->data_get() now returns the recording data from the last list
+// $recording->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

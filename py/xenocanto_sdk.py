@@ -221,7 +221,7 @@ class XenoCantoSDK:
 
 
     def Recording(self, data=None) -> "RecordingEntity":
-        """Entity factory: client.Recording().list({}) / client.Recording().load({"id": ...})."""
+        """Entity factory: client.Recording().list() / client.Recording().load({"id": ...})."""
         from entity.recording_entity import RecordingEntity
         return RecordingEntity(self, data)
 

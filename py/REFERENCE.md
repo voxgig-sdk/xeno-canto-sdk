@@ -8,7 +8,7 @@ Complete API reference for the XenoCanto Python SDK.
 ### Constructor
 
 ```python
-from xeno-canto_sdk import XenoCantoSDK
+from xenocanto_sdk import XenoCantoSDK
 
 client = XenoCantoSDK(options)
 ```
@@ -88,52 +88,52 @@ recording = client.Recording()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `also` | ``$ARRAY`` | No |  |
-| `alt` | ``$STRING`` | No |  |
-| `animal_seen` | ``$STRING`` | No |  |
-| `auto` | ``$STRING`` | No |  |
-| `cnt` | ``$STRING`` | No |  |
-| `date` | ``$STRING`` | No |  |
-| `dvc` | ``$STRING`` | No |  |
-| `en` | ``$STRING`` | No |  |
-| `file` | ``$STRING`` | No |  |
-| `file_name` | ``$STRING`` | No |  |
-| `gen` | ``$STRING`` | No |  |
-| `grp` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `lat` | ``$STRING`` | No |  |
-| `length` | ``$STRING`` | No |  |
-| `lic` | ``$STRING`` | No |  |
-| `loc` | ``$STRING`` | No |  |
-| `lon` | ``$STRING`` | No |  |
-| `method` | ``$STRING`` | No |  |
-| `mic` | ``$STRING`` | No |  |
-| `osci` | ``$OBJECT`` | No |  |
-| `playback_used` | ``$STRING`` | No |  |
-| `q` | ``$STRING`` | No |  |
-| `rec` | ``$STRING`` | No |  |
-| `regnr` | ``$STRING`` | No |  |
-| `rmk` | ``$STRING`` | No |  |
-| `sex` | ``$STRING`` | No |  |
-| `smp` | ``$STRING`` | No |  |
-| `sono` | ``$OBJECT`` | No |  |
-| `sp` | ``$STRING`` | No |  |
-| `ssp` | ``$STRING`` | No |  |
-| `stage` | ``$STRING`` | No |  |
-| `temp` | ``$STRING`` | No |  |
-| `time` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `uploaded` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
+| `also` | `list` | No |  |
+| `alt` | `str` | No |  |
+| `animal_seen` | `str` | No |  |
+| `auto` | `str` | No |  |
+| `cnt` | `str` | No |  |
+| `date` | `str` | No |  |
+| `dvc` | `str` | No |  |
+| `en` | `str` | No |  |
+| `file` | `str` | No |  |
+| `file_name` | `str` | No |  |
+| `gen` | `str` | No |  |
+| `grp` | `str` | No |  |
+| `id` | `str` | No |  |
+| `lat` | `str` | No |  |
+| `length` | `str` | No |  |
+| `lic` | `str` | No |  |
+| `loc` | `str` | No |  |
+| `lon` | `str` | No |  |
+| `method` | `str` | No |  |
+| `mic` | `str` | No |  |
+| `osci` | `dict` | No |  |
+| `playback_used` | `str` | No |  |
+| `q` | `str` | No |  |
+| `rec` | `str` | No |  |
+| `regnr` | `str` | No |  |
+| `rmk` | `str` | No |  |
+| `sex` | `str` | No |  |
+| `smp` | `str` | No |  |
+| `sono` | `dict` | No |  |
+| `sp` | `str` | No |  |
+| `ssp` | `str` | No |  |
+| `stage` | `str` | No |  |
+| `temp` | `str` | No |  |
+| `time` | `str` | No |  |
+| `type` | `str` | No |  |
+| `uploaded` | `str` | No |  |
+| `url` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Recording().list({})
+results = client.Recording().list()
 for recording in results:
     print(recording)
 ```

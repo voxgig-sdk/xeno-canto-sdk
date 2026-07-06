@@ -54,7 +54,7 @@ class Recording
     public ?string $url = null;
 }
 
-/** Match filter for Recording#list (any subset of Recording fields). */
+/** Request payload for Recording#list. */
 class RecordingListMatch
 {
     public ?array $also = null;

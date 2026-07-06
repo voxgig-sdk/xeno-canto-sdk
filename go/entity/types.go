@@ -49,8 +49,7 @@ type Recording struct {
 	Url *string `json:"url,omitempty"`
 }
 
-// RecordingListMatch mirrors the recording fields as an all-optional match
-// filter (Go analog of Partial<Recording>).
+// RecordingListMatch is the typed request payload for Recording.ListTyped.
 type RecordingListMatch struct {
 	Also *[]any `json:"also,omitempty"`
 	Alt *string `json:"alt,omitempty"`
