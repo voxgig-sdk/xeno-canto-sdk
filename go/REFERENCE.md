@@ -92,6 +92,7 @@ same parameters as `Direct()`.
 
 ```go
 recording := client.Recording(nil)
+fmt.Println(recording.GetName()) // "recording"
 ```
 
 ### Fields
@@ -144,6 +145,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Recording(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

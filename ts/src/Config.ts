@@ -39,7 +39,7 @@ class Config {
     base: 'https://xeno-canto.org/api/3',
 
     auth: {
-      prefix: 'Bearer',
+      prefix: '',
     },
 
     headers: {

@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -455,15 +452,25 @@
           "url": "https://xeno-canto.org"
         },
         "description": "API for accessing bird and wildlife sounds from around the world. Provides a RESTful JSON-based interface to search for and retrieve recordings of various species.",
+        "meta_source": "https://www.freepublicapis.com",
+        "security": {
+          "in": "query",
+          "name": "key",
+          "prefix": "",
+          "scheme": "ApiKeyAuth",
+          "type": "apiKey"
+        },
         "servers": [
           {
             "description": "Xeno-canto API v3 Server",
             "url": "https://xeno-canto.org/api/3"
           }
         ],
+        "summary": "API for accessing bird and wildlife sounds from around the world.",
         "termsOfService": "https://xeno-canto.org/about/terms",
         "title": "Xeno-canto API",
-        "version": "3.0.0"
+        "version": "3.0.0",
+        "website": "https://xeno-canto.org/explore/api"
       },
       "option": {},
       "target": {
@@ -516,6 +523,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -566,6 +576,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
