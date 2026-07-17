@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- XenoCanto SDK exists test
 
 local sdk = require("xeno-canto_sdk")
 
