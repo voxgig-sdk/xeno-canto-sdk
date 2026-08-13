@@ -95,14 +95,14 @@ $recording = $client->Recording();
 | --- | --- | --- | --- |
 | `also` | `array` | No |  |
 | `alt` | `string` | No |  |
-| `animal_seen` | `string` | No |  |
+| `animalseen` | `string` | No |  |
 | `auto` | `string` | No |  |
 | `cnt` | `string` | No |  |
 | `date` | `string` | No |  |
 | `dvc` | `string` | No |  |
 | `en` | `string` | No |  |
 | `file` | `string` | No |  |
-| `file_name` | `string` | No |  |
+| `filename` | `string` | No |  |
 | `gen` | `string` | No |  |
 | `grp` | `string` | No |  |
 | `id` | `string` | No |  |
@@ -114,7 +114,7 @@ $recording = $client->Recording();
 | `method` | `string` | No |  |
 | `mic` | `string` | No |  |
 | `osci` | `array` | No |  |
-| `playback_used` | `string` | No |  |
+| `playbackused` | `string` | No |  |
 | `q` | `string` | No |  |
 | `rec` | `string` | No |  |
 | `regnr` | `string` | No |  |

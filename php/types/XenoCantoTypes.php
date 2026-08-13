@@ -17,14 +17,14 @@ class Recording
 {
     public ?array $also = null;
     public ?string $alt = null;
-    public ?string $animal_seen = null;
+    public ?string $animalseen = null;
     public ?string $auto = null;
     public ?string $cnt = null;
     public ?string $date = null;
     public ?string $dvc = null;
     public ?string $en = null;
     public ?string $file = null;
-    public ?string $file_name = null;
+    public ?string $filename = null;
     public ?string $gen = null;
     public ?string $grp = null;
     public ?string $id = null;
@@ -36,7 +36,7 @@ class Recording
     public ?string $method = null;
     public ?string $mic = null;
     public ?array $osci = null;
-    public ?string $playback_used = null;
+    public ?string $playbackused = null;
     public ?string $q = null;
     public ?string $rec = null;
     public ?string $regnr = null;
@@ -59,14 +59,14 @@ class RecordingListMatch
 {
     public ?array $also = null;
     public ?string $alt = null;
-    public ?string $animal_seen = null;
+    public ?string $animalseen = null;
     public ?string $auto = null;
     public ?string $cnt = null;
     public ?string $date = null;
     public ?string $dvc = null;
     public ?string $en = null;
     public ?string $file = null;
-    public ?string $file_name = null;
+    public ?string $filename = null;
     public ?string $gen = null;
     public ?string $grp = null;
     public ?string $id = null;
@@ -78,7 +78,7 @@ class RecordingListMatch
     public ?string $method = null;
     public ?string $mic = null;
     public ?array $osci = null;
-    public ?string $playback_used = null;
+    public ?string $playbackused = null;
     public ?string $q = null;
     public ?string $rec = null;
     public ?string $regnr = null;

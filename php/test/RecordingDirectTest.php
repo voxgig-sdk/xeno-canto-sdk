@@ -66,16 +66,16 @@ function recording_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "XENOCANTO_TEST_RECORDING_ENTID" => [],
-        "XENOCANTO_TEST_LIVE" => "FALSE",
-        "XENOCANTO_APIKEY" => "NONE",
+        "XENO_CANTO_TEST_RECORDING_ENTID" => [],
+        "XENO_CANTO_TEST_LIVE" => "FALSE",
+        "XENO_CANTO_APIKEY" => "NONE",
     ]);
 
-    $live = $env["XENOCANTO_TEST_LIVE"] === "TRUE";
+    $live = $env["XENO_CANTO_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["XENOCANTO_APIKEY"],
+            "apikey" => $env["XENO_CANTO_APIKEY"],
         ];
         $client = new XenoCantoSDK($merged_opts);
         return [

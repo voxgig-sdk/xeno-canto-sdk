@@ -9,14 +9,14 @@
 ---@class Recording
 ---@field also? table
 ---@field alt? string
----@field animal_seen? string
+---@field animalseen? string
 ---@field auto? string
 ---@field cnt? string
 ---@field date? string
 ---@field dvc? string
 ---@field en? string
 ---@field file? string
----@field file_name? string
+---@field filename? string
 ---@field gen? string
 ---@field grp? string
 ---@field id? string
@@ -28,7 +28,7 @@
 ---@field method? string
 ---@field mic? string
 ---@field osci? table
----@field playback_used? string
+---@field playbackused? string
 ---@field q? string
 ---@field rec? string
 ---@field regnr? string
@@ -48,14 +48,14 @@
 ---@class RecordingListMatch
 ---@field also? table
 ---@field alt? string
----@field animal_seen? string
+---@field animalseen? string
 ---@field auto? string
 ---@field cnt? string
 ---@field date? string
 ---@field dvc? string
 ---@field en? string
 ---@field file? string
----@field file_name? string
+---@field filename? string
 ---@field gen? string
 ---@field grp? string
 ---@field id? string
@@ -67,7 +67,7 @@
 ---@field method? string
 ---@field mic? string
 ---@field osci? table
----@field playback_used? string
+---@field playbackused? string
 ---@field q? string
 ---@field rec? string
 ---@field regnr? string

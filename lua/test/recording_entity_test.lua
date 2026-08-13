@@ -70,7 +70,7 @@ describe("RecordingEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set XENOCANTO_TEST_RECORDING_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set XENO_CANTO_TEST_RECORDING_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -126,39 +126,39 @@ function recording_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("XENOCANTO_TEST_RECORDING_ENTID")
+  local entid_env_raw = os.getenv("XENO_CANTO_TEST_RECORDING_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["XENOCANTO_TEST_RECORDING_ENTID"] = idmap,
-    ["XENOCANTO_TEST_LIVE"] = "FALSE",
-    ["XENOCANTO_TEST_EXPLAIN"] = "FALSE",
-    ["XENOCANTO_APIKEY"] = "NONE",
+    ["XENO_CANTO_TEST_RECORDING_ENTID"] = idmap,
+    ["XENO_CANTO_TEST_LIVE"] = "FALSE",
+    ["XENO_CANTO_TEST_EXPLAIN"] = "FALSE",
+    ["XENO_CANTO_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["XENOCANTO_TEST_RECORDING_ENTID"])
+    env["XENO_CANTO_TEST_RECORDING_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["XENOCANTO_TEST_LIVE"] == "TRUE" then
+  if env["XENO_CANTO_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["XENOCANTO_APIKEY"],
+        apikey = env["XENO_CANTO_APIKEY"],
       },
       extra or {},
     })
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["XENOCANTO_TEST_LIVE"] == "TRUE"
+  local live = env["XENO_CANTO_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["XENOCANTO_TEST_EXPLAIN"] == "TRUE",
+    explain = env["XENO_CANTO_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

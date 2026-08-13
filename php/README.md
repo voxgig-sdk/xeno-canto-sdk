@@ -127,7 +127,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = XenoCantoSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $recording = $client->Recording()->list();
 print_r($recording);
 ```
@@ -228,7 +229,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -252,14 +253,14 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `also` |  |
 | `alt` |  |
-| `animal_seen` |  |
+| `animalseen` |  |
 | `auto` |  |
 | `cnt` |  |
 | `date` |  |
 | `dvc` |  |
 | `en` |  |
 | `file` |  |
-| `file_name` |  |
+| `filename` |  |
 | `gen` |  |
 | `grp` |  |
 | `id` |  |
@@ -271,7 +272,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `method` |  |
 | `mic` |  |
 | `osci` |  |
-| `playback_used` |  |
+| `playbackused` |  |
 | `q` |  |
 | `rec` |  |
 | `regnr` |  |
@@ -313,14 +314,14 @@ Create an instance: `$recording = $client->Recording();`
 | --- | --- | --- |
 | `also` | `array` |  |
 | `alt` | `string` |  |
-| `animal_seen` | `string` |  |
+| `animalseen` | `string` |  |
 | `auto` | `string` |  |
 | `cnt` | `string` |  |
 | `date` | `string` |  |
 | `dvc` | `string` |  |
 | `en` | `string` |  |
 | `file` | `string` |  |
-| `file_name` | `string` |  |
+| `filename` | `string` |  |
 | `gen` | `string` |  |
 | `grp` | `string` |  |
 | `id` | `string` |  |
@@ -332,7 +333,7 @@ Create an instance: `$recording = $client->Recording();`
 | `method` | `string` |  |
 | `mic` | `string` |  |
 | `osci` | `array` |  |
-| `playback_used` | `string` |  |
+| `playbackused` | `string` |  |
 | `q` | `string` |  |
 | `rec` | `string` |  |
 | `regnr` | `string` |  |

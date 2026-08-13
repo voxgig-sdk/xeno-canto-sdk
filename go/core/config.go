@@ -43,7 +43,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "animal_seen",
+						"name": "animalseen",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 2,
@@ -92,7 +92,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "file_name",
+						"name": "filename",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 9,
@@ -176,7 +176,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "playback_used",
+						"name": "playbackused",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 21,
@@ -334,6 +334,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/recordings",
 								"parts": []any{
@@ -349,12 +350,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.recordings`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

@@ -8,6 +8,7 @@ guide: {
   entity: recording: {
     path: "/recordings": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.recordings`")|top
     }
   }
 

@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = XenoCantoSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 recording = client.Recording.list()
 puts recording
 ```
@@ -242,14 +243,14 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `also` |  |
 | `alt` |  |
-| `animal_seen` |  |
+| `animalseen` |  |
 | `auto` |  |
 | `cnt` |  |
 | `date` |  |
 | `dvc` |  |
 | `en` |  |
 | `file` |  |
-| `file_name` |  |
+| `filename` |  |
 | `gen` |  |
 | `grp` |  |
 | `id` |  |
@@ -261,7 +262,7 @@ returns a result `Hash` with these keys:
 | `method` |  |
 | `mic` |  |
 | `osci` |  |
-| `playback_used` |  |
+| `playbackused` |  |
 | `q` |  |
 | `rec` |  |
 | `regnr` |  |
@@ -303,14 +304,14 @@ Create an instance: `recording = client.Recording`
 | --- | --- | --- |
 | `also` | `Array` |  |
 | `alt` | `String` |  |
-| `animal_seen` | `String` |  |
+| `animalseen` | `String` |  |
 | `auto` | `String` |  |
 | `cnt` | `String` |  |
 | `date` | `String` |  |
 | `dvc` | `String` |  |
 | `en` | `String` |  |
 | `file` | `String` |  |
-| `file_name` | `String` |  |
+| `filename` | `String` |  |
 | `gen` | `String` |  |
 | `grp` | `String` |  |
 | `id` | `String` |  |
@@ -322,7 +323,7 @@ Create an instance: `recording = client.Recording`
 | `method` | `String` |  |
 | `mic` | `String` |  |
 | `osci` | `Hash` |  |
-| `playback_used` | `String` |  |
+| `playbackused` | `String` |  |
 | `q` | `String` |  |
 | `rec` | `String` |  |
 | `regnr` | `String` |  |

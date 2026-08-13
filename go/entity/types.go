@@ -6,20 +6,24 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/voxgig-sdk/xeno-canto-sdk/go/core"
+)
 
 // Recording is the typed data model for the recording entity.
 type Recording struct {
 	Also *[]any `json:"also,omitempty"`
 	Alt *string `json:"alt,omitempty"`
-	AnimalSeen *string `json:"animal_seen,omitempty"`
+	Animalseen *string `json:"animalseen,omitempty"`
 	Auto *string `json:"auto,omitempty"`
 	Cnt *string `json:"cnt,omitempty"`
 	Date *string `json:"date,omitempty"`
 	Dvc *string `json:"dvc,omitempty"`
 	En *string `json:"en,omitempty"`
 	File *string `json:"file,omitempty"`
-	FileName *string `json:"file_name,omitempty"`
+	Filename *string `json:"filename,omitempty"`
 	Gen *string `json:"gen,omitempty"`
 	Grp *string `json:"grp,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -31,7 +35,7 @@ type Recording struct {
 	Method *string `json:"method,omitempty"`
 	Mic *string `json:"mic,omitempty"`
 	Osci *map[string]any `json:"osci,omitempty"`
-	PlaybackUsed *string `json:"playback_used,omitempty"`
+	Playbackused *string `json:"playbackused,omitempty"`
 	Q *string `json:"q,omitempty"`
 	Rec *string `json:"rec,omitempty"`
 	Regnr *string `json:"regnr,omitempty"`
@@ -53,14 +57,14 @@ type Recording struct {
 type RecordingListMatch struct {
 	Also *[]any `json:"also,omitempty"`
 	Alt *string `json:"alt,omitempty"`
-	AnimalSeen *string `json:"animal_seen,omitempty"`
+	Animalseen *string `json:"animalseen,omitempty"`
 	Auto *string `json:"auto,omitempty"`
 	Cnt *string `json:"cnt,omitempty"`
 	Date *string `json:"date,omitempty"`
 	Dvc *string `json:"dvc,omitempty"`
 	En *string `json:"en,omitempty"`
 	File *string `json:"file,omitempty"`
-	FileName *string `json:"file_name,omitempty"`
+	Filename *string `json:"filename,omitempty"`
 	Gen *string `json:"gen,omitempty"`
 	Grp *string `json:"grp,omitempty"`
 	Id *string `json:"id,omitempty"`
@@ -72,7 +76,7 @@ type RecordingListMatch struct {
 	Method *string `json:"method,omitempty"`
 	Mic *string `json:"mic,omitempty"`
 	Osci *map[string]any `json:"osci,omitempty"`
-	PlaybackUsed *string `json:"playback_used,omitempty"`
+	Playbackused *string `json:"playbackused,omitempty"`
 	Q *string `json:"q,omitempty"`
 	Rec *string `json:"rec,omitempty"`
 	Regnr *string `json:"regnr,omitempty"`
@@ -102,12 +106,26 @@ func asMap(v any) map[string]any {
 	return out
 }
 
-// typedFrom decodes a runtime value (a map[string]any produced by the op
-// pipeline) into a typed model T via a JSON round-trip. On any error it
-// returns the zero value of T; the op's own (value, error) tuple carries the
-// real error.
+// entityData unwraps an entity to its data map.
+//
+// Operations resolve to the ENTITY, not the raw data (see AGENTS.md), and an
+// entity's fields are UNEXPORTED — marshalling one directly yields `{}`, so
+// every typed accessor would silently hand back a zero-valued struct. The
+// typed boundary therefore takes the data hop first.
+func entityData(v any) any {
+	if ent, ok := v.(core.Entity); ok {
+		return ent.Data()
+	}
+	return v
+}
+
+// typedFrom decodes a runtime value (an entity, or the map[string]any the op
+// pipeline produced) into a typed model T via a JSON round-trip. On any error
+// it returns the zero value of T; the op's own (value, error) tuple carries
+// the real error.
 func typedFrom[T any](v any) T {
 	var out T
+	v = entityData(v)
 	if v == nil {
 		return out
 	}
@@ -119,12 +137,20 @@ func typedFrom[T any](v any) T {
 	return out
 }
 
-// typedSliceFrom decodes a runtime list value ([]any of maps) into a typed
-// slice []T via a JSON round-trip, for list ops.
+// typedSliceFrom decodes a runtime list value into a typed slice []T via a
+// JSON round-trip, for list ops. `list` resolves to a slice of ENTITY
+// instances, so each element takes the data hop.
 func typedSliceFrom[T any](v any) []T {
 	var out []T
 	if v == nil {
 		return out
+	}
+	if list, ok := v.([]any); ok {
+		unwrapped := make([]any, 0, len(list))
+		for _, item := range list {
+			unwrapped = append(unwrapped, entityData(item))
+		}
+		v = unwrapped
 	}
 	b, err := json.Marshal(v)
 	if err != nil {

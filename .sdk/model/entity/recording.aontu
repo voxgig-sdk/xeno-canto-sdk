@@ -16,7 +16,7 @@ main: kit: entity: recording: {
       type: "`$STRING`"
     }
     {
-      name: "animal_seen"
+      name: "animalseen"
       req: false
       type: "`$STRING`"
     }
@@ -51,7 +51,7 @@ main: kit: entity: recording: {
       type: "`$STRING`"
     }
     {
-      name: "file_name"
+      name: "filename"
       req: false
       type: "`$STRING`"
     }
@@ -111,7 +111,7 @@ main: kit: entity: recording: {
       type: "`$OBJECT`"
     }
     {
-      name: "playback_used"
+      name: "playbackused"
       req: false
       type: "`$STRING`"
     }
@@ -253,7 +253,7 @@ main: kit: entity: recording: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.recordings`"
           }
         }
       ]

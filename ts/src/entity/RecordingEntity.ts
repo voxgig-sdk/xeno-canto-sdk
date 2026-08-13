@@ -37,7 +37,7 @@ class RecordingEntity extends XenoCantoEntityBase<Recording> {
 
 
 
-  async list(this: any, reqmatch?: RecordingListMatch, ctrl?: Control): Promise<Recording[]> {
+  async list(this: any, reqmatch?: RecordingListMatch, ctrl?: Control): Promise<RecordingEntity[]> {
 
     const utility = this._utility
 

@@ -26,8 +26,8 @@ import {
 describe('RecordingEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when XENOCANTO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('XENOCANTO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when XENO_CANTO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('XENO_CANTO_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = XenoCantoSDK.test()
@@ -63,7 +63,7 @@ describe('RecordingEntity', async () => {
     const recording_ref01_ent = client.Recording()
     const recording_ref01_match: any = {}
 
-    const recording_ref01_list = await recording_ref01_ent.list(recording_ref01_match)
+    const recording_ref01_list = (await recording_ref01_ent.list(recording_ref01_match)).map((e: any) => e.data())
 
 
   })

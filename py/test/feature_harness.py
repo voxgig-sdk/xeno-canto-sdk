@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import XenoCantoControl
-from core.error import XenoCantoError
-from core.result import XenoCantoResult
-from core.spec import XenoCantoSpec
+from xenocanto_sdk.config import make_config
+from xenocanto_sdk.features import _make_feature
+from xenocanto_sdk.core.control import XenoCantoControl
+from xenocanto_sdk.core.error import XenoCantoError
+from xenocanto_sdk.core.result import XenoCantoResult
+from xenocanto_sdk.core.spec import XenoCantoSpec
 
 
 # True when this SDK was generated with the named feature.

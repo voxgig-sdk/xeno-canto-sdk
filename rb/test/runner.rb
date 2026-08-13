@@ -23,8 +23,8 @@ module XenoCantoTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("XENOCANTO_TEST_LIVE")
-    override = getenv("XENOCANTO_TEST_OVERRIDE")
+    live = getenv("XENO_CANTO_TEST_LIVE")
+    override = getenv("XENO_CANTO_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module XenoCantoTestRunner
       end
     end
 
-    explain = getenv("XENOCANTO_TEST_EXPLAIN")
-    m["XENOCANTO_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("XENO_CANTO_TEST_EXPLAIN")
+    m["XENO_CANTO_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

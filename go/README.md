@@ -267,14 +267,14 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"also"` |  |
 | `"alt"` |  |
-| `"animal_seen"` |  |
+| `"animalseen"` |  |
 | `"auto"` |  |
 | `"cnt"` |  |
 | `"date"` |  |
 | `"dvc"` |  |
 | `"en"` |  |
 | `"file"` |  |
-| `"file_name"` |  |
+| `"filename"` |  |
 | `"gen"` |  |
 | `"grp"` |  |
 | `"id"` |  |
@@ -286,7 +286,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"method"` |  |
 | `"mic"` |  |
 | `"osci"` |  |
-| `"playback_used"` |  |
+| `"playbackused"` |  |
 | `"q"` |  |
 | `"rec"` |  |
 | `"regnr"` |  |
@@ -328,14 +328,14 @@ Create an instance: `recording := client.Recording(nil)`
 | --- | --- | --- |
 | `also` | `[]any` |  |
 | `alt` | `string` |  |
-| `animal_seen` | `string` |  |
+| `animalseen` | `string` |  |
 | `auto` | `string` |  |
 | `cnt` | `string` |  |
 | `date` | `string` |  |
 | `dvc` | `string` |  |
 | `en` | `string` |  |
 | `file` | `string` |  |
-| `file_name` | `string` |  |
+| `filename` | `string` |  |
 | `gen` | `string` |  |
 | `grp` | `string` |  |
 | `id` | `string` |  |
@@ -347,7 +347,7 @@ Create an instance: `recording := client.Recording(nil)`
 | `method` | `string` |  |
 | `mic` | `string` |  |
 | `osci` | `map[string]any` |  |
-| `playback_used` | `string` |  |
+| `playbackused` | `string` |  |
 | `q` | `string` |  |
 | `rec` | `string` |  |
 | `regnr` | `string` |  |

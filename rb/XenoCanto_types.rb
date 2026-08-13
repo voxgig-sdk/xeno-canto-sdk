@@ -16,7 +16,7 @@
 # @!attribute [rw] alt
 #   @return [String, nil]
 #
-# @!attribute [rw] animal_seen
+# @!attribute [rw] animalseen
 #   @return [String, nil]
 #
 # @!attribute [rw] auto
@@ -37,7 +37,7 @@
 # @!attribute [rw] file
 #   @return [String, nil]
 #
-# @!attribute [rw] file_name
+# @!attribute [rw] filename
 #   @return [String, nil]
 #
 # @!attribute [rw] gen
@@ -73,7 +73,7 @@
 # @!attribute [rw] osci
 #   @return [Hash, nil]
 #
-# @!attribute [rw] playback_used
+# @!attribute [rw] playbackused
 #   @return [String, nil]
 #
 # @!attribute [rw] q
@@ -123,14 +123,14 @@
 Recording = Struct.new(
   :also,
   :alt,
-  :animal_seen,
+  :animalseen,
   :auto,
   :cnt,
   :date,
   :dvc,
   :en,
   :file,
-  :file_name,
+  :filename,
   :gen,
   :grp,
   :id,
@@ -142,7 +142,7 @@ Recording = Struct.new(
   :method,
   :mic,
   :osci,
-  :playback_used,
+  :playbackused,
   :q,
   :rec,
   :regnr,
@@ -169,7 +169,7 @@ Recording = Struct.new(
 # @!attribute [rw] alt
 #   @return [String, nil]
 #
-# @!attribute [rw] animal_seen
+# @!attribute [rw] animalseen
 #   @return [String, nil]
 #
 # @!attribute [rw] auto
@@ -190,7 +190,7 @@ Recording = Struct.new(
 # @!attribute [rw] file
 #   @return [String, nil]
 #
-# @!attribute [rw] file_name
+# @!attribute [rw] filename
 #   @return [String, nil]
 #
 # @!attribute [rw] gen
@@ -226,7 +226,7 @@ Recording = Struct.new(
 # @!attribute [rw] osci
 #   @return [Hash, nil]
 #
-# @!attribute [rw] playback_used
+# @!attribute [rw] playbackused
 #   @return [String, nil]
 #
 # @!attribute [rw] q
@@ -276,14 +276,14 @@ Recording = Struct.new(
 RecordingListMatch = Struct.new(
   :also,
   :alt,
-  :animal_seen,
+  :animalseen,
   :auto,
   :cnt,
   :date,
   :dvc,
   :en,
   :file,
-  :file_name,
+  :filename,
   :gen,
   :grp,
   :id,
@@ -295,7 +295,7 @@ RecordingListMatch = Struct.new(
   :method,
   :mic,
   :osci,
-  :playback_used,
+  :playbackused,
   :q,
   :rec,
   :regnr,

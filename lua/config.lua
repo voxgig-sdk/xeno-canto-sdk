@@ -43,7 +43,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "animal_seen",
+            ["name"] = "animalseen",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 2,
@@ -92,7 +92,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "file_name",
+            ["name"] = "filename",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 9,
@@ -176,7 +176,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "playback_used",
+            ["name"] = "playbackused",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 21,
@@ -334,6 +334,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/recordings",
                 ["parts"] = {
@@ -349,7 +350,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.recordings`",
                 },
                 ["index$"] = 0,
               },

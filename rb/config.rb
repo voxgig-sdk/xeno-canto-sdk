@@ -44,7 +44,7 @@ module XenoCantoConfig
             },
             {
               "active" => true,
-              "name" => "animal_seen",
+              "name" => "animalseen",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 2,
@@ -93,7 +93,7 @@ module XenoCantoConfig
             },
             {
               "active" => true,
-              "name" => "file_name",
+              "name" => "filename",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 9,
@@ -177,7 +177,7 @@ module XenoCantoConfig
             },
             {
               "active" => true,
-              "name" => "playback_used",
+              "name" => "playbackused",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 21,
@@ -335,6 +335,7 @@ module XenoCantoConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/recordings",
                   "parts" => [
@@ -350,7 +351,7 @@ module XenoCantoConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.recordings`",
                   },
                   "index$" => 0,
                 },

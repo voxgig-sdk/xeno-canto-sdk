@@ -222,9 +222,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local recording, err = client:Recording():load()
+    local recording, err = client:Recording():list()
     if err then error(err) end
-    -- recording is the loaded record
+    -- recording is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -237,14 +237,14 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `also` |  |
 | `alt` |  |
-| `animal_seen` |  |
+| `animalseen` |  |
 | `auto` |  |
 | `cnt` |  |
 | `date` |  |
 | `dvc` |  |
 | `en` |  |
 | `file` |  |
-| `file_name` |  |
+| `filename` |  |
 | `gen` |  |
 | `grp` |  |
 | `id` |  |
@@ -256,7 +256,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `method` |  |
 | `mic` |  |
 | `osci` |  |
-| `playback_used` |  |
+| `playbackused` |  |
 | `q` |  |
 | `rec` |  |
 | `regnr` |  |
@@ -298,14 +298,14 @@ Create an instance: `local recording = client:Recording(nil)`
 | --- | --- | --- |
 | `also` | `table` |  |
 | `alt` | `string` |  |
-| `animal_seen` | `string` |  |
+| `animalseen` | `string` |  |
 | `auto` | `string` |  |
 | `cnt` | `string` |  |
 | `date` | `string` |  |
 | `dvc` | `string` |  |
 | `en` | `string` |  |
 | `file` | `string` |  |
-| `file_name` | `string` |  |
+| `filename` | `string` |  |
 | `gen` | `string` |  |
 | `grp` | `string` |  |
 | `id` | `string` |  |
@@ -317,7 +317,7 @@ Create an instance: `local recording = client:Recording(nil)`
 | `method` | `string` |  |
 | `mic` | `string` |  |
 | `osci` | `table` |  |
-| `playback_used` | `string` |  |
+| `playbackused` | `string` |  |
 | `q` | `string` |  |
 | `rec` | `string` |  |
 | `regnr` | `string` |  |

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# XenoCanto SDK exists test
 
 import pytest
 from xenocanto_sdk import XenoCantoSDK

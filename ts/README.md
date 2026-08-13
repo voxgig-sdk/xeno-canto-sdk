@@ -37,7 +37,9 @@ const client = new XenoCantoSDK({
 
 ### 2. List recording records
 
-`list()` resolves to an array of Recording objects — iterate it directly:
+`list()` resolves to an array of Recording ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const recordings = await client.Recording().list()
@@ -122,7 +124,8 @@ Create a mock client for unit testing — no server required:
 const client = XenoCantoSDK.test()
 
 const recording = await client.Recording().list()
-// recording is a bare entity populated with mock response data
+// recording is the entity, populated with mock response data
+// — call recording.data() for the record itself
 console.log(recording)
 ```
 
@@ -292,14 +295,14 @@ The `prepare()` method returns:
 | --- | --- |
 | `also` |  |
 | `alt` |  |
-| `animal_seen` |  |
+| `animalseen` |  |
 | `auto` |  |
 | `cnt` |  |
 | `date` |  |
 | `dvc` |  |
 | `en` |  |
 | `file` |  |
-| `file_name` |  |
+| `filename` |  |
 | `gen` |  |
 | `grp` |  |
 | `id` |  |
@@ -311,7 +314,7 @@ The `prepare()` method returns:
 | `method` |  |
 | `mic` |  |
 | `osci` |  |
-| `playback_used` |  |
+| `playbackused` |  |
 | `q` |  |
 | `rec` |  |
 | `regnr` |  |
@@ -353,14 +356,14 @@ Create an instance: `const recording = client.Recording()`
 | --- | --- | --- |
 | `also` | `any[]` |  |
 | `alt` | `string` |  |
-| `animal_seen` | `string` |  |
+| `animalseen` | `string` |  |
 | `auto` | `string` |  |
 | `cnt` | `string` |  |
 | `date` | `string` |  |
 | `dvc` | `string` |  |
 | `en` | `string` |  |
 | `file` | `string` |  |
-| `file_name` | `string` |  |
+| `filename` | `string` |  |
 | `gen` | `string` |  |
 | `grp` | `string` |  |
 | `id` | `string` |  |
@@ -372,7 +375,7 @@ Create an instance: `const recording = client.Recording()`
 | `method` | `string` |  |
 | `mic` | `string` |  |
 | `osci` | `Record<string, any>` |  |
-| `playback_used` | `string` |  |
+| `playbackused` | `string` |  |
 | `q` | `string` |  |
 | `rec` | `string` |  |
 | `regnr` | `string` |  |

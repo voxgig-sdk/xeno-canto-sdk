@@ -96,14 +96,14 @@ recording = client.Recording
 | --- | --- | --- | --- |
 | `also` | `Array` | No |  |
 | `alt` | `String` | No |  |
-| `animal_seen` | `String` | No |  |
+| `animalseen` | `String` | No |  |
 | `auto` | `String` | No |  |
 | `cnt` | `String` | No |  |
 | `date` | `String` | No |  |
 | `dvc` | `String` | No |  |
 | `en` | `String` | No |  |
 | `file` | `String` | No |  |
-| `file_name` | `String` | No |  |
+| `filename` | `String` | No |  |
 | `gen` | `String` | No |  |
 | `grp` | `String` | No |  |
 | `id` | `String` | No |  |
@@ -115,7 +115,7 @@ recording = client.Recording
 | `method` | `String` | No |  |
 | `mic` | `String` | No |  |
 | `osci` | `Hash` | No |  |
-| `playback_used` | `String` | No |  |
+| `playbackused` | `String` | No |  |
 | `q` | `String` | No |  |
 | `rec` | `String` | No |  |
 | `regnr` | `String` | No |  |

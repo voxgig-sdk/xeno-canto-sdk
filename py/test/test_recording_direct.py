@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from xenocanto_sdk.utility.voxgig_struct import voxgig_struct as vs
 from xenocanto_sdk import XenoCantoSDK
-from core import helpers
+from xenocanto_sdk.core import helpers
 from test import runner
 
 
@@ -58,16 +58,16 @@ def _recording_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "XENOCANTO_TEST_RECORDING_ENTID": {},
-        "XENOCANTO_TEST_LIVE": "FALSE",
-        "XENOCANTO_APIKEY": "NONE",
+        "XENO_CANTO_TEST_RECORDING_ENTID": {},
+        "XENO_CANTO_TEST_LIVE": "FALSE",
+        "XENO_CANTO_APIKEY": "NONE",
     })
 
-    live = env.get("XENOCANTO_TEST_LIVE") == "TRUE"
+    live = env.get("XENO_CANTO_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("XENOCANTO_APIKEY"),
+            "apikey": env.get("XENO_CANTO_APIKEY"),
         }
         client = XenoCantoSDK(merged_opts)
         return {

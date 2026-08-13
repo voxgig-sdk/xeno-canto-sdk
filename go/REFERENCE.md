@@ -101,14 +101,14 @@ fmt.Println(recording.GetName()) // "recording"
 | --- | --- | --- | --- |
 | `also` | `[]any` | No |  |
 | `alt` | `string` | No |  |
-| `animal_seen` | `string` | No |  |
+| `animalseen` | `string` | No |  |
 | `auto` | `string` | No |  |
 | `cnt` | `string` | No |  |
 | `date` | `string` | No |  |
 | `dvc` | `string` | No |  |
 | `en` | `string` | No |  |
 | `file` | `string` | No |  |
-| `file_name` | `string` | No |  |
+| `filename` | `string` | No |  |
 | `gen` | `string` | No |  |
 | `grp` | `string` | No |  |
 | `id` | `string` | No |  |
@@ -120,7 +120,7 @@ fmt.Println(recording.GetName()) // "recording"
 | `method` | `string` | No |  |
 | `mic` | `string` | No |  |
 | `osci` | `map[string]any` | No |  |
-| `playback_used` | `string` | No |  |
+| `playbackused` | `string` | No |  |
 | `q` | `string` | No |  |
 | `rec` | `string` | No |  |
 | `regnr` | `string` | No |  |

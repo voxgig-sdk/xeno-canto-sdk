@@ -8,14 +8,14 @@
 export interface Recording {
   also?: any[]
   alt?: string
-  animal_seen?: string
+  animalseen?: string
   auto?: string
   cnt?: string
   date?: string
   dvc?: string
   en?: string
   file?: string
-  file_name?: string
+  filename?: string
   gen?: string
   grp?: string
   id?: string
@@ -27,7 +27,7 @@ export interface Recording {
   method?: string
   mic?: string
   osci?: Record<string, any>
-  playback_used?: string
+  playbackused?: string
   q?: string
   rec?: string
   regnr?: string
@@ -48,14 +48,14 @@ export interface Recording {
 export interface RecordingListMatch {
   also?: any[]
   alt?: string
-  animal_seen?: string
+  animalseen?: string
   auto?: string
   cnt?: string
   date?: string
   dvc?: string
   en?: string
   file?: string
-  file_name?: string
+  filename?: string
   gen?: string
   grp?: string
   id?: string
@@ -67,7 +67,7 @@ export interface RecordingListMatch {
   method?: string
   mic?: string
   osci?: Record<string, any>
-  playback_used?: string
+  playbackused?: string
   q?: string
   rec?: string
   regnr?: string

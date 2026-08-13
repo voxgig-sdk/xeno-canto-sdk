@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ XenoCantoUtility::setRegistrar(function (XenoCantoUtility $u): void {
     $u->prepare_params = [XenoCantoPrepareParams::class, 'call'];
     $u->prepare_path = [XenoCantoPreparePath::class, 'call'];
     $u->prepare_query = [XenoCantoPrepareQuery::class, 'call'];
+    $u->graphql_body = [XenoCantoGraphql::class, 'body'];
+    $u->graphql_errors = [XenoCantoGraphql::class, 'errors'];
     $u->result_basic = [XenoCantoResultBasic::class, 'call'];
     $u->result_body = [XenoCantoResultBody::class, 'call'];
     $u->result_headers = [XenoCantoResultHeaders::class, 'call'];

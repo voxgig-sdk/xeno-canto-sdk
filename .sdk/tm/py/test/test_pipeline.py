@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import XenoCantoSDK
-from core.error import XenoCantoError
-from core.result import XenoCantoResult
-from core.response import XenoCantoResponse
-from core.spec import XenoCantoSpec
-from feature.base_feature import XenoCantoBaseFeature
+from projectname_sdk.core.error import XenoCantoError
+from projectname_sdk.core.result import XenoCantoResult
+from projectname_sdk.core.response import XenoCantoResponse
+from projectname_sdk.core.spec import XenoCantoSpec
+from projectname_sdk.feature.base_feature import XenoCantoBaseFeature
 
 
 def _client():

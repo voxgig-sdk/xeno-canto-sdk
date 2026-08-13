@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.XENOCANTO_TEST_LIVE ||
-    'TRUE' === process.env.XENOCANTO_TEST_OVERRIDE
+    'TRUE' === process.env.XENO_CANTO_TEST_LIVE ||
+    'TRUE' === process.env.XENO_CANTO_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.XENOCANTO_TEST_EXPLAIN = process.env.XENOCANTO_TEST_EXPLAIN || m.XENOCANTO_TEST_EXPLAIN
+  m.XENO_CANTO_TEST_EXPLAIN = process.env.XENO_CANTO_TEST_EXPLAIN || m.XENO_CANTO_TEST_EXPLAIN
 
   return m
 }

@@ -90,14 +90,14 @@ recording = client.Recording()
 | --- | --- | --- | --- |
 | `also` | `list` | No |  |
 | `alt` | `str` | No |  |
-| `animal_seen` | `str` | No |  |
+| `animalseen` | `str` | No |  |
 | `auto` | `str` | No |  |
 | `cnt` | `str` | No |  |
 | `date` | `str` | No |  |
 | `dvc` | `str` | No |  |
 | `en` | `str` | No |  |
 | `file` | `str` | No |  |
-| `file_name` | `str` | No |  |
+| `filename` | `str` | No |  |
 | `gen` | `str` | No |  |
 | `grp` | `str` | No |  |
 | `id` | `str` | No |  |
@@ -109,7 +109,7 @@ recording = client.Recording()
 | `method` | `str` | No |  |
 | `mic` | `str` | No |  |
 | `osci` | `dict` | No |  |
-| `playback_used` | `str` | No |  |
+| `playbackused` | `str` | No |  |
 | `q` | `str` | No |  |
 | `rec` | `str` | No |  |
 | `regnr` | `str` | No |  |

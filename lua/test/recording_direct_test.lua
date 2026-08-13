@@ -61,16 +61,16 @@ function recording_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["XENOCANTO_TEST_RECORDING_ENTID"] = {},
-    ["XENOCANTO_TEST_LIVE"] = "FALSE",
-    ["XENOCANTO_APIKEY"] = "NONE",
+    ["XENO_CANTO_TEST_RECORDING_ENTID"] = {},
+    ["XENO_CANTO_TEST_LIVE"] = "FALSE",
+    ["XENO_CANTO_APIKEY"] = "NONE",
   })
 
-  local live = env["XENOCANTO_TEST_LIVE"] == "TRUE"
+  local live = env["XENO_CANTO_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["XENOCANTO_APIKEY"],
+      apikey = env["XENO_CANTO_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

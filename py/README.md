@@ -127,7 +127,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = XenoCantoSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 recording = client.Recording().list()
 # recording contains the mock response record
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -249,14 +250,14 @@ On error, `ok` is `False` and `err` contains the error value.
 | --- | --- |
 | `also` |  |
 | `alt` |  |
-| `animal_seen` |  |
+| `animalseen` |  |
 | `auto` |  |
 | `cnt` |  |
 | `date` |  |
 | `dvc` |  |
 | `en` |  |
 | `file` |  |
-| `file_name` |  |
+| `filename` |  |
 | `gen` |  |
 | `grp` |  |
 | `id` |  |
@@ -268,7 +269,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `method` |  |
 | `mic` |  |
 | `osci` |  |
-| `playback_used` |  |
+| `playbackused` |  |
 | `q` |  |
 | `rec` |  |
 | `regnr` |  |
@@ -310,14 +311,14 @@ Create an instance: `recording = client.Recording()`
 | --- | --- | --- |
 | `also` | `list` |  |
 | `alt` | `str` |  |
-| `animal_seen` | `str` |  |
+| `animalseen` | `str` |  |
 | `auto` | `str` |  |
 | `cnt` | `str` |  |
 | `date` | `str` |  |
 | `dvc` | `str` |  |
 | `en` | `str` |  |
 | `file` | `str` |  |
-| `file_name` | `str` |  |
+| `filename` | `str` |  |
 | `gen` | `str` |  |
 | `grp` | `str` |  |
 | `id` | `str` |  |
@@ -329,7 +330,7 @@ Create an instance: `recording = client.Recording()`
 | `method` | `str` |  |
 | `mic` | `str` |  |
 | `osci` | `dict` |  |
-| `playback_used` | `str` |  |
+| `playbackused` | `str` |  |
 | `q` | `str` |  |
 | `rec` | `str` |  |
 | `regnr` | `str` |  |

@@ -43,8 +43,8 @@ class XenoCantoTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('XENOCANTO_TEST_LIVE');
-        $override = self::getenv('XENOCANTO_TEST_OVERRIDE');
+        $live = self::getenv('XENO_CANTO_TEST_LIVE');
+        $override = self::getenv('XENO_CANTO_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class XenoCantoTestRunner
             }
         }
 
-        $explain = self::getenv('XENOCANTO_TEST_EXPLAIN');
+        $explain = self::getenv('XENO_CANTO_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['XENOCANTO_TEST_EXPLAIN'] = $explain;
+            $m['XENO_CANTO_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

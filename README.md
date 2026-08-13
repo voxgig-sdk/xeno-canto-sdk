@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = XenoCantoSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = XenoCantoSDK.test({
+  entity: {
+    recording: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const recordings = await client.Recording().list()
-// recordings is an array of bare Recording records populated with mock data
+// recordings is an array of Recording entities, populated with mock data
+// — call recordings[0].data() for the record itself
 console.log(recordings)
 ```
 
@@ -112,7 +121,7 @@ const client = new XenoCantoSDK({
   apikey: process.env.XENO_CANTO_APIKEY,
 })
 
-// List all recordings (returns Recording[])
+// List all recordings (returns RecordingEntity[] — .data() for the record)
 const recordings = await client.Recording().list()
 for (const recording of recordings) {
   console.log(recording)
@@ -356,6 +365,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://xeno-canto.org](https://xeno-canto.org)
 

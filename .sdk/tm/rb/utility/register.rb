@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ XenoCantoUtility.registrar = ->(u) {
   u.prepare_params = XenoCantoUtilities::PrepareParams
   u.prepare_path = XenoCantoUtilities::PreparePath
   u.prepare_query = XenoCantoUtilities::PrepareQuery
+  u.graphql_body = XenoCantoUtilities::GraphqlBody
+  u.graphql_errors = XenoCantoUtilities::GraphqlErrors
   u.result_basic = XenoCantoUtilities::ResultBasic
   u.result_body = XenoCantoUtilities::ResultBody
   u.result_headers = XenoCantoUtilities::ResultHeaders

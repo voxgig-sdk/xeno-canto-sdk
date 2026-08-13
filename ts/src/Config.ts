@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'XenoCanto',
   }
 
 
@@ -74,7 +74,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "animal_seen",
+          "name": "animalseen",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -123,7 +123,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "file_name",
+          "name": "filename",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -207,7 +207,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "playback_used",
+          "name": "playbackused",
           "req": false,
           "type": "`$STRING`",
           "index$": 21
@@ -365,6 +365,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/recordings",
               "parts": [
@@ -380,7 +381,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.recordings`"
               },
               "index$": 0
             }
