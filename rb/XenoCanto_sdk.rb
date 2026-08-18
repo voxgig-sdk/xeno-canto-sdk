@@ -28,7 +28,7 @@ class XenoCantoSDK
     utility = XenoCantoUtility.new
     @_utility = utility
 
-    config = XenoCantoConfig.make_config
+    config = XenoCantoConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

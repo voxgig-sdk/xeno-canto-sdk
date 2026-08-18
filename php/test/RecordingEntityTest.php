@@ -40,7 +40,7 @@ class RecordingEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = XenoCantoConfig::make_config();
+        $cfg = XenoCantoConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = XenoCantoSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

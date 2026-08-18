@@ -1,7 +1,30 @@
 # XenoCanto SDK configuration
 
 
+_shared_config = None
+
+
+def shared_config():
+    """Return the process-wide config, built once on first use.
+
+    The SDK reads the config on every request and never writes to it, so one
+    instance is shared by every client rather than rebuilt per client.
+
+    The returned dict is shared: treat it as read-only. Callers that need to
+    mutate should use make_config, which always returns a fresh copy.
+    """
+    global _shared_config
+    if _shared_config is None:
+        _shared_config = make_config()
+    return _shared_config
+
+
 def make_config():
+    """Build a fresh, fully materialised config dict.
+
+    Every call rebuilds the whole structure, so prefer shared_config unless
+    you need a private copy you intend to mutate.
+    """
     return {
         "main": {
             "name": "XenoCanto",
@@ -29,263 +52,152 @@ def make_config():
       "recording": {
         "fields": [
           {
-            "active": True,
             "name": "also",
-            "req": False,
             "type": "`$ARRAY`",
-            "index$": 0,
           },
           {
-            "active": True,
             "name": "alt",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 1,
           },
           {
-            "active": True,
             "name": "animalseen",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 2,
           },
           {
-            "active": True,
             "name": "auto",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 3,
           },
           {
-            "active": True,
             "name": "cnt",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 4,
           },
           {
-            "active": True,
             "name": "date",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 5,
           },
           {
-            "active": True,
             "name": "dvc",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 6,
           },
           {
-            "active": True,
             "name": "en",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 7,
           },
           {
-            "active": True,
             "name": "file",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 8,
           },
           {
-            "active": True,
             "name": "filename",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 9,
           },
           {
-            "active": True,
             "name": "gen",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 10,
           },
           {
-            "active": True,
             "name": "grp",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 11,
           },
           {
-            "active": True,
             "name": "id",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 12,
           },
           {
-            "active": True,
             "name": "lat",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 13,
           },
           {
-            "active": True,
             "name": "length",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 14,
           },
           {
-            "active": True,
             "name": "lic",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 15,
           },
           {
-            "active": True,
             "name": "loc",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 16,
           },
           {
-            "active": True,
             "name": "lon",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 17,
           },
           {
-            "active": True,
             "name": "method",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 18,
           },
           {
-            "active": True,
             "name": "mic",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 19,
           },
           {
-            "active": True,
             "name": "osci",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 20,
           },
           {
-            "active": True,
             "name": "playbackused",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 21,
           },
           {
-            "active": True,
             "name": "q",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 22,
           },
           {
-            "active": True,
             "name": "rec",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 23,
           },
           {
-            "active": True,
             "name": "regnr",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 24,
           },
           {
-            "active": True,
             "name": "rmk",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 25,
           },
           {
-            "active": True,
             "name": "sex",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 26,
           },
           {
-            "active": True,
             "name": "smp",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 27,
           },
           {
-            "active": True,
             "name": "sono",
-            "req": False,
             "type": "`$OBJECT`",
-            "index$": 28,
           },
           {
-            "active": True,
             "name": "sp",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 29,
           },
           {
-            "active": True,
             "name": "ssp",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 30,
           },
           {
-            "active": True,
             "name": "stage",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 31,
           },
           {
-            "active": True,
             "name": "temp",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 32,
           },
           {
-            "active": True,
             "name": "time",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 33,
           },
           {
-            "active": True,
             "name": "type",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 34,
           },
           {
-            "active": True,
             "name": "uploaded",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 35,
           },
           {
-            "active": True,
             "name": "url",
-            "req": False,
             "type": "`$STRING`",
-            "index$": 36,
           },
         ],
         "name": "recording",
@@ -295,11 +207,9 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "active": True,
                 "args": {
                   "query": [
                     {
-                      "active": True,
                       "kind": "query",
                       "name": "key",
                       "orig": "key",
@@ -307,25 +217,20 @@ def make_config():
                       "type": "`$STRING`",
                     },
                     {
-                      "active": True,
                       "example": 1,
                       "kind": "query",
                       "name": "page",
                       "orig": "page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "example": 100,
                       "kind": "query",
                       "name": "per_page",
                       "orig": "per_page",
-                      "reqd": False,
                       "type": "`$INTEGER`",
                     },
                     {
-                      "active": True,
                       "example": "sp:\"larus fuscus\"",
                       "kind": "query",
                       "name": "query",
@@ -353,10 +258,8 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.recordings`",
                 },
-                "index$": 0,
               },
             ],
-            "key$": "list",
           },
         },
         "relations": {

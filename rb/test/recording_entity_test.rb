@@ -33,7 +33,7 @@ class RecordingEntityTest < Minitest::Test
     assert_equal 3, seen.length
 
     # Inbound: streaming active -> yields each item from the feature.
-    cfg = XenoCantoConfig.make_config
+    cfg = XenoCantoConfig.shared_config
     if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
       sdk = XenoCantoSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
       got = []

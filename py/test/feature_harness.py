@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from xenocanto_sdk.config import make_config
+from xenocanto_sdk.config import shared_config
 from xenocanto_sdk.features import _make_feature
 from xenocanto_sdk.core.control import XenoCantoControl
 from xenocanto_sdk.core.error import XenoCantoError
@@ -24,7 +24,7 @@ from xenocanto_sdk.core.spec import XenoCantoSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

@@ -40,7 +40,7 @@ class XenoCantoSDK
         $utility = new XenoCantoUtility();
         $this->_utility = $utility;
 
-        $config = XenoCantoConfig::make_config();
+        $config = XenoCantoConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

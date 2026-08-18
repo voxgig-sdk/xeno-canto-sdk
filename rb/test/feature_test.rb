@@ -15,7 +15,7 @@ require_relative "../XenoCanto_sdk"
 module XenoCantoFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = XenoCantoConfig.make_config["feature"]
+    f = XenoCantoConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

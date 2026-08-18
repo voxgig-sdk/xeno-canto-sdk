@@ -23,6 +23,7 @@ build = {
   modules = {
     ["xeno-canto_sdk"] = "xeno-canto_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }
