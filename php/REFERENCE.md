@@ -93,43 +93,43 @@ $recording = $client->Recording();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `also` | `array` | No |  |
-| `alt` | `string` | No |  |
-| `animalseen` | `string` | No |  |
-| `auto` | `string` | No |  |
-| `cnt` | `string` | No |  |
-| `date` | `string` | No |  |
-| `dvc` | `string` | No |  |
-| `en` | `string` | No |  |
-| `file` | `string` | No |  |
-| `filename` | `string` | No |  |
-| `gen` | `string` | No |  |
-| `grp` | `string` | No |  |
-| `id` | `string` | No |  |
-| `lat` | `string` | No |  |
-| `length` | `string` | No |  |
-| `lic` | `string` | No |  |
-| `loc` | `string` | No |  |
-| `lon` | `string` | No |  |
-| `method` | `string` | No |  |
-| `mic` | `string` | No |  |
-| `osci` | `array` | No |  |
-| `playbackused` | `string` | No |  |
-| `q` | `string` | No |  |
-| `rec` | `string` | No |  |
-| `regnr` | `string` | No |  |
-| `rmk` | `string` | No |  |
-| `sex` | `string` | No |  |
-| `smp` | `string` | No |  |
-| `sono` | `array` | No |  |
-| `sp` | `string` | No |  |
-| `ssp` | `string` | No |  |
-| `stage` | `string` | No |  |
-| `temp` | `string` | No |  |
-| `time` | `string` | No |  |
-| `type` | `string` | No |  |
-| `uploaded` | `string` | No |  |
-| `url` | `string` | No |  |
+| `also` | `array` | No | Identified background species in the recording |
+| `alt` | `string` | No | Altitude at which the recording was made |
+| `animalseen` | `string` | No | Was the recorded animal seen? |
+| `auto` | `string` | No | Automatic (non-supervised) recording? |
+| `cnt` | `string` | No | Country where the recording was made |
+| `date` | `string` | No | Date that the recording was made |
+| `dvc` | `string` | No | Recording device used |
+| `en` | `string` | No | English name of the species |
+| `file` | `string` | No | URL to the audio file |
+| `filename` | `string` | No | Original file name of the audio file |
+| `gen` | `string` | No | Generic name of the species |
+| `grp` | `string` | No | Group to which the species belongs |
+| `id` | `string` | No | Catalogue number of the recording on xeno-canto |
+| `lat` | `string` | No | Latitude of the recording in decimal coordinates |
+| `length` | `string` | No | Length of the recording in minutes |
+| `lic` | `string` | No | URL describing the license of this recording |
+| `loc` | `string` | No | Name of the locality |
+| `lon` | `string` | No | Longitude of the recording in decimal coordinates |
+| `method` | `string` | No | Recording method (field recording, in the hand, etc.) |
+| `mic` | `string` | No | Microphone used |
+| `osci` | `array` | No | URLs to the three versions of oscillograms |
+| `playbackused` | `string` | No | Was playback used to lure the animal? |
+| `q` | `string` | No | Current quality rating for the recording |
+| `rec` | `string` | No | Name of the recordist |
+| `regnr` | `string` | No | Registration number of specimen (when collected) |
+| `rmk` | `string` | No | Additional remarks by the recordist |
+| `sex` | `string` | No | Sex of the animal |
+| `smp` | `string` | No | Sample rate |
+| `sono` | `array` | No | URLs to the four versions of sonograms |
+| `sp` | `string` | No | Specific name (epithet) of the species |
+| `ssp` | `string` | No | Subspecies name (subspecific epithet) |
+| `stage` | `string` | No | Life stage of the animal (adult, juvenile, etc.) |
+| `temp` | `string` | No | Temperature during recording (applicable to specific groups only) |
+| `time` | `string` | No | Time of day that the recording was made |
+| `type` | `string` | No | Sound type of the recording (e.g., call, song) |
+| `uploaded` | `string` | No | Date that the recording was uploaded to xeno-canto |
+| `url` | `string` | No | URL specifying the details of this recording |
 
 ### Operations
 

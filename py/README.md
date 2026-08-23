@@ -248,43 +248,43 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `also` |  |
-| `alt` |  |
-| `animalseen` |  |
-| `auto` |  |
-| `cnt` |  |
-| `date` |  |
-| `dvc` |  |
-| `en` |  |
-| `file` |  |
-| `filename` |  |
-| `gen` |  |
-| `grp` |  |
-| `id` |  |
-| `lat` |  |
-| `length` |  |
-| `lic` |  |
-| `loc` |  |
-| `lon` |  |
-| `method` |  |
-| `mic` |  |
-| `osci` |  |
-| `playbackused` |  |
-| `q` |  |
-| `rec` |  |
-| `regnr` |  |
-| `rmk` |  |
-| `sex` |  |
-| `smp` |  |
-| `sono` |  |
-| `sp` |  |
-| `ssp` |  |
-| `stage` |  |
-| `temp` |  |
-| `time` |  |
-| `type` |  |
-| `uploaded` |  |
-| `url` |  |
+| `also` | Identified background species in the recording |
+| `alt` | Altitude at which the recording was made |
+| `animalseen` | Was the recorded animal seen? |
+| `auto` | Automatic (non-supervised) recording? |
+| `cnt` | Country where the recording was made |
+| `date` | Date that the recording was made |
+| `dvc` | Recording device used |
+| `en` | English name of the species |
+| `file` | URL to the audio file |
+| `filename` | Original file name of the audio file |
+| `gen` | Generic name of the species |
+| `grp` | Group to which the species belongs |
+| `id` | Catalogue number of the recording on xeno-canto |
+| `lat` | Latitude of the recording in decimal coordinates |
+| `length` | Length of the recording in minutes |
+| `lic` | URL describing the license of this recording |
+| `loc` | Name of the locality |
+| `lon` | Longitude of the recording in decimal coordinates |
+| `method` | Recording method (field recording, in the hand, etc.) |
+| `mic` | Microphone used |
+| `osci` | URLs to the three versions of oscillograms |
+| `playbackused` | Was playback used to lure the animal? |
+| `q` | Current quality rating for the recording |
+| `rec` | Name of the recordist |
+| `regnr` | Registration number of specimen (when collected) |
+| `rmk` | Additional remarks by the recordist |
+| `sex` | Sex of the animal |
+| `smp` | Sample rate |
+| `sono` | URLs to the four versions of sonograms |
+| `sp` | Specific name (epithet) of the species |
+| `ssp` | Subspecies name (subspecific epithet) |
+| `stage` | Life stage of the animal (adult, juvenile, etc.) |
+| `temp` | Temperature during recording (applicable to specific groups only) |
+| `time` | Time of day that the recording was made |
+| `type` | Sound type of the recording (e.g., call, song) |
+| `uploaded` | Date that the recording was uploaded to xeno-canto |
+| `url` | URL specifying the details of this recording |
 
 Operations: List.
 
@@ -309,43 +309,43 @@ Create an instance: `recording = client.Recording()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `also` | `list` |  |
-| `alt` | `str` |  |
-| `animalseen` | `str` |  |
-| `auto` | `str` |  |
-| `cnt` | `str` |  |
-| `date` | `str` |  |
-| `dvc` | `str` |  |
-| `en` | `str` |  |
-| `file` | `str` |  |
-| `filename` | `str` |  |
-| `gen` | `str` |  |
-| `grp` | `str` |  |
-| `id` | `str` |  |
-| `lat` | `str` |  |
-| `length` | `str` |  |
-| `lic` | `str` |  |
-| `loc` | `str` |  |
-| `lon` | `str` |  |
-| `method` | `str` |  |
-| `mic` | `str` |  |
-| `osci` | `dict` |  |
-| `playbackused` | `str` |  |
-| `q` | `str` |  |
-| `rec` | `str` |  |
-| `regnr` | `str` |  |
-| `rmk` | `str` |  |
-| `sex` | `str` |  |
-| `smp` | `str` |  |
-| `sono` | `dict` |  |
-| `sp` | `str` |  |
-| `ssp` | `str` |  |
-| `stage` | `str` |  |
-| `temp` | `str` |  |
-| `time` | `str` |  |
-| `type` | `str` |  |
-| `uploaded` | `str` |  |
-| `url` | `str` |  |
+| `also` | `list` | Identified background species in the recording |
+| `alt` | `str` | Altitude at which the recording was made |
+| `animalseen` | `str` | Was the recorded animal seen? |
+| `auto` | `str` | Automatic (non-supervised) recording? |
+| `cnt` | `str` | Country where the recording was made |
+| `date` | `str` | Date that the recording was made |
+| `dvc` | `str` | Recording device used |
+| `en` | `str` | English name of the species |
+| `file` | `str` | URL to the audio file |
+| `filename` | `str` | Original file name of the audio file |
+| `gen` | `str` | Generic name of the species |
+| `grp` | `str` | Group to which the species belongs |
+| `id` | `str` | Catalogue number of the recording on xeno-canto |
+| `lat` | `str` | Latitude of the recording in decimal coordinates |
+| `length` | `str` | Length of the recording in minutes |
+| `lic` | `str` | URL describing the license of this recording |
+| `loc` | `str` | Name of the locality |
+| `lon` | `str` | Longitude of the recording in decimal coordinates |
+| `method` | `str` | Recording method (field recording, in the hand, etc.) |
+| `mic` | `str` | Microphone used |
+| `osci` | `dict` | URLs to the three versions of oscillograms |
+| `playbackused` | `str` | Was playback used to lure the animal? |
+| `q` | `str` | Current quality rating for the recording |
+| `rec` | `str` | Name of the recordist |
+| `regnr` | `str` | Registration number of specimen (when collected) |
+| `rmk` | `str` | Additional remarks by the recordist |
+| `sex` | `str` | Sex of the animal |
+| `smp` | `str` | Sample rate |
+| `sono` | `dict` | URLs to the four versions of sonograms |
+| `sp` | `str` | Specific name (epithet) of the species |
+| `ssp` | `str` | Subspecies name (subspecific epithet) |
+| `stage` | `str` | Life stage of the animal (adult, juvenile, etc.) |
+| `temp` | `str` | Temperature during recording (applicable to specific groups only) |
+| `time` | `str` | Time of day that the recording was made |
+| `type` | `str` | Sound type of the recording (e.g., call, song) |
+| `uploaded` | `str` | Date that the recording was uploaded to xeno-canto |
+| `url` | `str` | URL specifying the details of this recording |
 
 #### Example: List
 

@@ -36,222 +36,259 @@
               "active": true,
               "name": "also",
               "req": false,
+              "short": "Identified background species in the recording",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "alt",
               "req": false,
+              "short": "Altitude at which the recording was made",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "animalseen",
               "req": false,
+              "short": "Was the recorded animal seen?",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "auto",
               "req": false,
+              "short": "Automatic (non-supervised) recording?",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "cnt",
               "req": false,
+              "short": "Country where the recording was made",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "date",
               "req": false,
+              "short": "Date that the recording was made",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "dvc",
               "req": false,
+              "short": "Recording device used",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "en",
               "req": false,
+              "short": "English name of the species",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "file",
               "req": false,
+              "short": "URL to the audio file",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "filename",
               "req": false,
+              "short": "Original file name of the audio file",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gen",
               "req": false,
+              "short": "Generic name of the species",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "grp",
               "req": false,
+              "short": "Group to which the species belongs",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Catalogue number of the recording on xeno-canto",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lat",
               "req": false,
+              "short": "Latitude of the recording in decimal coordinates",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "length",
               "req": false,
+              "short": "Length of the recording in minutes",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lic",
               "req": false,
+              "short": "URL describing the license of this recording",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "loc",
               "req": false,
+              "short": "Name of the locality",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "lon",
               "req": false,
+              "short": "Longitude of the recording in decimal coordinates",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "method",
               "req": false,
+              "short": "Recording method (field recording, in the hand, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "mic",
               "req": false,
+              "short": "Microphone used",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "osci",
               "req": false,
+              "short": "URLs to the three versions of oscillograms",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "playbackused",
               "req": false,
+              "short": "Was playback used to lure the animal?",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "q",
               "req": false,
+              "short": "Current quality rating for the recording",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rec",
               "req": false,
+              "short": "Name of the recordist",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "regnr",
               "req": false,
+              "short": "Registration number of specimen (when collected)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "rmk",
               "req": false,
+              "short": "Additional remarks by the recordist",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "sex",
               "req": false,
+              "short": "Sex of the animal",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "smp",
               "req": false,
+              "short": "Sample rate",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "sono",
               "req": false,
+              "short": "URLs to the four versions of sonograms",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "sp",
               "req": false,
+              "short": "Specific name (epithet) of the species",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ssp",
               "req": false,
+              "short": "Subspecies name (subspecific epithet)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "stage",
               "req": false,
+              "short": "Life stage of the animal (adult, juvenile, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "temp",
               "req": false,
+              "short": "Temperature during recording (applicable to specific groups only)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "time",
               "req": false,
+              "short": "Time of day that the recording was made",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Sound type of the recording (e.g., call, song)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "uploaded",
               "req": false,
+              "short": "Date that the recording was uploaded to xeno-canto",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "URL specifying the details of this recording",
               "type": "`$STRING`"
             }
           ],
