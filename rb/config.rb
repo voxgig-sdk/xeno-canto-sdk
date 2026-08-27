@@ -28,6 +28,7 @@ module XenoCantoConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {

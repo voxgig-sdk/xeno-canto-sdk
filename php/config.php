@@ -42,6 +42,7 @@ class XenoCantoConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
