@@ -56,41 +56,11 @@ class Recording(TypedDict, total=False):
     url: str
 
 
-class RecordingListMatch(TypedDict, total=False):
-    also: list
-    alt: str
-    animalseen: str
-    auto: str
-    cnt: str
-    date: str
-    dvc: str
-    en: str
-    file: str
-    filename: str
-    gen: str
-    grp: str
-    id: str
-    lat: str
-    length: str
-    lic: str
-    loc: str
-    lon: str
-    method: str
-    mic: str
-    osci: dict
-    playbackused: str
-    q: str
-    rec: str
-    regnr: str
-    rmk: str
-    sex: str
-    smp: str
-    sono: dict
-    sp: str
-    ssp: str
-    stage: str
-    temp: str
-    time: str
-    type: str
-    uploaded: str
-    url: str
+class RecordingListMatchRequired(TypedDict):
+    key: str
+    query: str
+
+
+class RecordingListMatch(RecordingListMatchRequired, total=False):
+    page: int
+    per_page: int

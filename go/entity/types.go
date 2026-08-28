@@ -55,43 +55,10 @@ type Recording struct {
 
 // RecordingListMatch is the typed request payload for Recording.ListTyped.
 type RecordingListMatch struct {
-	Also *[]any `json:"also,omitempty"`
-	Alt *string `json:"alt,omitempty"`
-	Animalseen *string `json:"animalseen,omitempty"`
-	Auto *string `json:"auto,omitempty"`
-	Cnt *string `json:"cnt,omitempty"`
-	Date *string `json:"date,omitempty"`
-	Dvc *string `json:"dvc,omitempty"`
-	En *string `json:"en,omitempty"`
-	File *string `json:"file,omitempty"`
-	Filename *string `json:"filename,omitempty"`
-	Gen *string `json:"gen,omitempty"`
-	Grp *string `json:"grp,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Lat *string `json:"lat,omitempty"`
-	Length *string `json:"length,omitempty"`
-	Lic *string `json:"lic,omitempty"`
-	Loc *string `json:"loc,omitempty"`
-	Lon *string `json:"lon,omitempty"`
-	Method *string `json:"method,omitempty"`
-	Mic *string `json:"mic,omitempty"`
-	Osci *map[string]any `json:"osci,omitempty"`
-	Playbackused *string `json:"playbackused,omitempty"`
-	Q *string `json:"q,omitempty"`
-	Rec *string `json:"rec,omitempty"`
-	Regnr *string `json:"regnr,omitempty"`
-	Rmk *string `json:"rmk,omitempty"`
-	Sex *string `json:"sex,omitempty"`
-	Smp *string `json:"smp,omitempty"`
-	Sono *map[string]any `json:"sono,omitempty"`
-	Sp *string `json:"sp,omitempty"`
-	Ssp *string `json:"ssp,omitempty"`
-	Stage *string `json:"stage,omitempty"`
-	Temp *string `json:"temp,omitempty"`
-	Time *string `json:"time,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Uploaded *string `json:"uploaded,omitempty"`
-	Url *string `json:"url,omitempty"`
+	Key string `json:"key"`
+	Page *int `json:"page,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
+	Query string `json:"query"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

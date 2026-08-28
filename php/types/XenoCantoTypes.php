@@ -57,42 +57,9 @@ class Recording
 /** Request payload for Recording#list. */
 class RecordingListMatch
 {
-    public ?array $also = null;
-    public ?string $alt = null;
-    public ?string $animalseen = null;
-    public ?string $auto = null;
-    public ?string $cnt = null;
-    public ?string $date = null;
-    public ?string $dvc = null;
-    public ?string $en = null;
-    public ?string $file = null;
-    public ?string $filename = null;
-    public ?string $gen = null;
-    public ?string $grp = null;
-    public ?string $id = null;
-    public ?string $lat = null;
-    public ?string $length = null;
-    public ?string $lic = null;
-    public ?string $loc = null;
-    public ?string $lon = null;
-    public ?string $method = null;
-    public ?string $mic = null;
-    public ?array $osci = null;
-    public ?string $playbackused = null;
-    public ?string $q = null;
-    public ?string $rec = null;
-    public ?string $regnr = null;
-    public ?string $rmk = null;
-    public ?string $sex = null;
-    public ?string $smp = null;
-    public ?array $sono = null;
-    public ?string $sp = null;
-    public ?string $ssp = null;
-    public ?string $stage = null;
-    public ?string $temp = null;
-    public ?string $time = null;
-    public ?string $type = null;
-    public ?string $uploaded = null;
-    public ?string $url = null;
+    public string $key;
+    public ?int $page = null;
+    public ?int $per_page = null;
+    public string $query;
 }
 
