@@ -246,6 +246,10 @@ class XenoCantoConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'recording',
           'op' => [
             'list' => [
@@ -289,8 +293,10 @@ class XenoCantoConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/recordings',
-                  'parts' => [
-                    'recordings',
+                  'segments' => [
+                    [
+                      'lit' => 'recordings',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -303,6 +309,9 @@ class XenoCantoConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.recordings`',
+                  ],
+                  'parts' => [
+                    'recordings',
                   ],
                 ],
               ],

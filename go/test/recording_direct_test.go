@@ -94,14 +94,22 @@ func recordingDirectSetup(mockres any) *recordingDirectSetupResult {
 	env := envOverride(map[string]any{
 		"XENO_CANTO_TEST_RECORDING_ENTID": map[string]any{},
 		"XENO_CANTO_TEST_LIVE":    "FALSE",
-		"XENO_CANTO_APIKEY":       "NONE",
+		"XENO_CANTO_APIKEY":       "",
 	})
 
 	live := env["XENO_CANTO_TEST_LIVE"] == "TRUE"
 
 	if live {
-		mergedOpts := map[string]any{
+		// sdk-test-control.json's test.client.options seeds the live
+		// client; the generated fields below overwrite anything they name.
+		mergedOpts := map[string]any{}
+		for k, v := range liveClientOptions() {
+			mergedOpts[k] = v
+		}
+		for k, v := range map[string]any{
 			"apikey": env["XENO_CANTO_APIKEY"],
+		} {
+			mergedOpts[k] = v
 		}
 		client := sdk.NewXenoCantoSDK(mergedOpts)
 

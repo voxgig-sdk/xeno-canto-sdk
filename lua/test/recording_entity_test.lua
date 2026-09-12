@@ -133,7 +133,7 @@ function recording_basic_setup(extra)
     ["XENO_CANTO_TEST_RECORDING_ENTID"] = idmap,
     ["XENO_CANTO_TEST_LIVE"] = "FALSE",
     ["XENO_CANTO_TEST_EXPLAIN"] = "FALSE",
-    ["XENO_CANTO_APIKEY"] = "NONE",
+    ["XENO_CANTO_APIKEY"] = "",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -144,6 +144,9 @@ function recording_basic_setup(extra)
 
   if env["XENO_CANTO_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
+      -- FIRST, so the generated fields below win: sdk-test-control.json's
+      -- test.client.options adds to the live client, it does not redirect it.
+      runner.live_client_options(),
       {
         apikey = env["XENO_CANTO_APIKEY"],
       },

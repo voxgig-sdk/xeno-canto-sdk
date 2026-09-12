@@ -62,15 +62,17 @@ def recording_direct_setup(mockres)
   env = Runner.env_override({
     "XENO_CANTO_TEST_RECORDING_ENTID" => {},
     "XENO_CANTO_TEST_LIVE" => "FALSE",
-    "XENO_CANTO_APIKEY" => "NONE",
+    "XENO_CANTO_APIKEY" => "",
   })
 
   live = env["XENO_CANTO_TEST_LIVE"] == "TRUE"
 
   if live
-    merged_opts = {
+    # Merged so the generated fields win: sdk-test-control.json's
+    # test.client.options adds to the live client, it does not redirect it.
+    merged_opts = Runner.live_client_options.merge({
       "apikey" => env["XENO_CANTO_APIKEY"],
-    }
+    })
     client = XenoCantoSDK.new(merged_opts)
     return {
       client: client,

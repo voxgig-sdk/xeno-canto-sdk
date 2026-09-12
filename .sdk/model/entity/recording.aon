@@ -277,8 +277,10 @@ main: kit: entity: recording: {
           }
           method: "GET"
           orig: "/recordings"
-          parts: [
-            "recordings"
+          segments: [
+            {
+              lit: "recordings"
+            }
           ]
           select: {
             exist: [
