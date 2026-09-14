@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { XenoCantoSDK } from '@voxgig-sdk/xeno-canto'
+import { XenoCantoSDK } from '@voxgig-sdk/xeno-canto-sdk'
 
 const client = new XenoCantoSDK({
   apikey: process.env.XENO_CANTO_APIKEY,
@@ -481,7 +481,7 @@ xeno-canto/
 Import the SDK from the package root:
 
 ```ts
-import { XenoCantoSDK } from '@voxgig-sdk/xeno-canto'
+import { XenoCantoSDK } from '@voxgig-sdk/xeno-canto-sdk'
 ```
 
 ### Entity state
