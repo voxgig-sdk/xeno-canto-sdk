@@ -161,5 +161,363 @@
         "url": "s5ec"
       }
     }
+  },
+  "requests": {
+    "GET /recordings": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "searchRecordings",
+        "parameters": [
+          {
+            "description": "Search query string using search tags (e.g., sp:\"larus fuscus\", gen:turdus, cnt:spain). Must be non-empty. See documentation for available search tags.",
+            "example": "sp:\"larus fuscus\"",
+            "in": "query",
+            "name": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "API key for authentication. Available to all registered XC members with verified email addresses. Required for all API v3 requests.",
+            "in": "query",
+            "name": "key",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results per page. Valid values range from 50 to 500. Default is 100.",
+            "in": "query",
+            "name": "per_page",
+            "required": false,
+            "schema": {
+              "default": 100,
+              "maximum": 500,
+              "minimum": 50,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page number for paginated results. Must be between 1 and numPages from the response.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "numPages": {
+                      "description": "Total number of pages available for this query",
+                      "type": "integer"
+                    },
+                    "numRecordings": {
+                      "description": "Total number of recordings found for this query",
+                      "type": "string"
+                    },
+                    "numSpecies": {
+                      "description": "Total number of species found for this query",
+                      "type": "string"
+                    },
+                    "page": {
+                      "description": "Current page number of results being displayed",
+                      "type": "integer"
+                    },
+                    "recordings": {
+                      "description": "Array of recording objects matching the query",
+                      "items": {
+                        "properties": {
+                          "also": {
+                            "description": "Identified background species in the recording",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "alt": {
+                            "description": "Altitude at which the recording was made",
+                            "type": "string"
+                          },
+                          "animal-seen": {
+                            "description": "Was the recorded animal seen?",
+                            "type": "string"
+                          },
+                          "auto": {
+                            "description": "Automatic (non-supervised) recording?",
+                            "type": "string"
+                          },
+                          "cnt": {
+                            "description": "Country where the recording was made",
+                            "type": "string"
+                          },
+                          "date": {
+                            "description": "Date that the recording was made",
+                            "type": "string"
+                          },
+                          "dvc": {
+                            "description": "Recording device used",
+                            "type": "string"
+                          },
+                          "en": {
+                            "description": "English name of the species",
+                            "type": "string"
+                          },
+                          "file": {
+                            "description": "URL to the audio file",
+                            "type": "string"
+                          },
+                          "file-name": {
+                            "description": "Original file name of the audio file",
+                            "type": "string"
+                          },
+                          "gen": {
+                            "description": "Generic name of the species",
+                            "type": "string"
+                          },
+                          "grp": {
+                            "description": "Group to which the species belongs",
+                            "enum": [
+                              "birds",
+                              "grasshoppers",
+                              "bats"
+                            ],
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Catalogue number of the recording on xeno-canto",
+                            "type": "string"
+                          },
+                          "lat": {
+                            "description": "Latitude of the recording in decimal coordinates",
+                            "type": "string"
+                          },
+                          "length": {
+                            "description": "Length of the recording in minutes",
+                            "type": "string"
+                          },
+                          "lic": {
+                            "description": "URL describing the license of this recording",
+                            "type": "string"
+                          },
+                          "loc": {
+                            "description": "Name of the locality",
+                            "type": "string"
+                          },
+                          "lon": {
+                            "description": "Longitude of the recording in decimal coordinates",
+                            "type": "string"
+                          },
+                          "method": {
+                            "description": "Recording method (field recording, in the hand, etc.)",
+                            "type": "string"
+                          },
+                          "mic": {
+                            "description": "Microphone used",
+                            "type": "string"
+                          },
+                          "osci": {
+                            "description": "URLs to the three versions of oscillograms",
+                            "properties": {
+                              "large": {
+                                "type": "string"
+                              },
+                              "med": {
+                                "type": "string"
+                              },
+                              "small": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "playback-used": {
+                            "description": "Was playback used to lure the animal?",
+                            "type": "string"
+                          },
+                          "q": {
+                            "description": "Current quality rating for the recording",
+                            "type": "string"
+                          },
+                          "rec": {
+                            "description": "Name of the recordist",
+                            "type": "string"
+                          },
+                          "regnr": {
+                            "description": "Registration number of specimen (when collected)",
+                            "type": "string"
+                          },
+                          "rmk": {
+                            "description": "Additional remarks by the recordist",
+                            "type": "string"
+                          },
+                          "sex": {
+                            "description": "Sex of the animal",
+                            "type": "string"
+                          },
+                          "smp": {
+                            "description": "Sample rate",
+                            "type": "string"
+                          },
+                          "sono": {
+                            "description": "URLs to the four versions of sonograms",
+                            "properties": {
+                              "full": {
+                                "type": "string"
+                              },
+                              "large": {
+                                "type": "string"
+                              },
+                              "med": {
+                                "type": "string"
+                              },
+                              "small": {
+                                "type": "string"
+                              }
+                            },
+                            "type": "object"
+                          },
+                          "sp": {
+                            "description": "Specific name (epithet) of the species",
+                            "type": "string"
+                          },
+                          "ssp": {
+                            "description": "Subspecies name (subspecific epithet)",
+                            "type": "string"
+                          },
+                          "stage": {
+                            "description": "Life stage of the animal (adult, juvenile, etc.)",
+                            "type": "string"
+                          },
+                          "temp": {
+                            "description": "Temperature during recording (applicable to specific groups only)",
+                            "type": "string"
+                          },
+                          "time": {
+                            "description": "Time of day that the recording was made",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "Sound type of the recording (e.g., call, song)",
+                            "type": "string"
+                          },
+                          "uploaded": {
+                            "description": "Date that the recording was uploaded to xeno-canto",
+                            "type": "string"
+                          },
+                          "url": {
+                            "description": "URL specifying the details of this recording",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "numRecordings",
+                    "numSpecies",
+                    "page",
+                    "numPages",
+                    "recordings"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful query returning recordings"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "code": {
+                          "description": "Identifier for the error",
+                          "type": "string"
+                        },
+                        "message": {
+                          "description": "Additional explanatory details about the error",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Client error - invalid request parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "code": {
+                          "description": "Identifier for the error",
+                          "type": "string"
+                        },
+                        "message": {
+                          "description": "Additional explanatory details about the error",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "message"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Server error"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "securitySchemes": {
+          "ApiKeyAuth": {
+            "description": "API key available to all registered XC members with verified email addresses",
+            "in": "query",
+            "name": "key",
+            "type": "apiKey"
+          }
+        },
+        "securitySource": "definition"
+      }
+    }
   }
 }

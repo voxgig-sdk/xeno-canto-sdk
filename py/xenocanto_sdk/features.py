@@ -1,12 +1,18 @@
 # XenoCanto SDK feature factory
 
 from xenocanto_sdk.feature.base_feature import XenoCantoBaseFeature
+from xenocanto_sdk.feature.ratelimit_feature import XenoCantoRatelimitFeature
+from xenocanto_sdk.feature.retry_feature import XenoCantoRetryFeature
 from xenocanto_sdk.feature.test_feature import XenoCantoTestFeature
+from xenocanto_sdk.feature.timeout_feature import XenoCantoTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: XenoCantoBaseFeature(),
+    "ratelimit": lambda: XenoCantoRatelimitFeature(),
+    "retry": lambda: XenoCantoRetryFeature(),
     "test": lambda: XenoCantoTestFeature(),
+    "timeout": lambda: XenoCantoTimeoutFeature(),
 }
 
 
