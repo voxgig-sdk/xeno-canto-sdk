@@ -105,12 +105,12 @@ local results, err = client:Recording():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/xeno-canto-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/releases) |
-| Python | `voxgig-sdk-xeno-canto` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/releases) |
-| PHP | `voxgig-sdk/xeno-canto` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/releases) |
+| TypeScript | `@voxgig-sdk/xeno-canto-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/tags) |
+| Python | `voxgig-sdk-xeno-canto` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/tags) |
+| PHP | `voxgig-sdk/xeno-canto` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/xeno-canto-sdk/go` | `go get github.com/voxgig-sdk/xeno-canto-sdk/go@latest` |
-| Ruby | `voxgig-sdk-xeno-canto` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/releases) |
-| Lua | `voxgig-sdk-xeno-canto` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/releases) |
+| Ruby | `voxgig-sdk-xeno-canto` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/tags) |
+| Lua | `voxgig-sdk-xeno-canto` | publish pending — [install from git tag](https://github.com/voxgig-sdk/xeno-canto-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/xeno-canto-sdk/go-cli` | `go install github.com/voxgig-sdk/xeno-canto-sdk/go-cli/cmd/xeno-canto@latest` |
 | Go MCP server | `github.com/voxgig-sdk/xeno-canto-sdk/go-mcp` | `go get github.com/voxgig-sdk/xeno-canto-sdk/go-mcp@latest` |
 

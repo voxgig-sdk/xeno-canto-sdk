@@ -89,6 +89,8 @@ module XenoCantoConfig
         "base" => "https://xeno-canto.org/api/3",
         "auth" => {
           "prefix" => "",
+          "in" => "query",
+          "name" => "key",
         },
         "headers" => {
           "content-type" => "application/json",
