@@ -19,7 +19,6 @@ import type {
   RecordingListMatch,
 } from '../XenoCantoTypes'
 
-// TODO: needs Entity superclass
 class RecordingEntity extends XenoCantoEntityBase<Recording> {
 
   constructor(client: XenoCantoSDK, entopts: any) {

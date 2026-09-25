@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RecordingEntity = void 0;
 const XenoCantoEntityBase_1 = require("../XenoCantoEntityBase");
-// TODO: needs Entity superclass
 class RecordingEntity extends XenoCantoEntityBase_1.XenoCantoEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

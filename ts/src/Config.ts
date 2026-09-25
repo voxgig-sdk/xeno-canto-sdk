@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -145,188 +138,225 @@ class Config {
       "fields": [
         {
           "name": "also",
-          "short": "Identified background species in the recording",
-          "type": "`$ARRAY`"
+          "title": "Also",
+          "type": "`$ARRAY`",
+          "short": "Identified background species in the recording"
         },
         {
           "name": "alt",
-          "short": "Altitude at which the recording was made",
-          "type": "`$STRING`"
+          "title": "Alt",
+          "type": "`$STRING`",
+          "short": "Altitude at which the recording was made"
         },
         {
           "name": "animalseen",
-          "short": "Was the recorded animal seen?",
-          "type": "`$STRING`"
+          "title": "Animalseen",
+          "type": "`$STRING`",
+          "short": "Was the recorded animal seen?"
         },
         {
           "name": "auto",
-          "short": "Automatic (non-supervised) recording?",
-          "type": "`$STRING`"
+          "title": "Auto",
+          "type": "`$STRING`",
+          "short": "Automatic (non-supervised) recording?"
         },
         {
           "name": "cnt",
-          "short": "Country where the recording was made",
-          "type": "`$STRING`"
+          "title": "Cnt",
+          "type": "`$STRING`",
+          "short": "Country where the recording was made"
         },
         {
           "name": "date",
-          "short": "Date that the recording was made",
-          "type": "`$STRING`"
+          "title": "Date",
+          "type": "`$STRING`",
+          "short": "Date that the recording was made"
         },
         {
           "name": "dvc",
-          "short": "Recording device used",
-          "type": "`$STRING`"
+          "title": "Dvc",
+          "type": "`$STRING`",
+          "short": "Recording device used"
         },
         {
           "name": "en",
-          "short": "English name of the species",
-          "type": "`$STRING`"
+          "title": "En",
+          "type": "`$STRING`",
+          "short": "English name of the species"
         },
         {
           "name": "file",
-          "short": "URL to the audio file",
-          "type": "`$STRING`"
+          "title": "File",
+          "type": "`$STRING`",
+          "short": "URL to the audio file"
         },
         {
           "name": "filename",
-          "short": "Original file name of the audio file",
-          "type": "`$STRING`"
+          "title": "Filename",
+          "type": "`$STRING`",
+          "short": "Original file name of the audio file"
         },
         {
           "name": "gen",
-          "short": "Generic name of the species",
-          "type": "`$STRING`"
+          "title": "Gen",
+          "type": "`$STRING`",
+          "short": "Generic name of the species"
         },
         {
           "name": "grp",
-          "short": "Group to which the species belongs",
-          "type": "`$STRING`"
+          "title": "Grp",
+          "type": "`$STRING`",
+          "short": "Group to which the species belongs"
         },
         {
           "name": "id",
-          "short": "Catalogue number of the recording on xeno-canto",
-          "type": "`$STRING`"
+          "title": "Id",
+          "type": "`$STRING`",
+          "short": "Catalogue number of the recording on xeno-canto"
         },
         {
           "name": "lat",
-          "short": "Latitude of the recording in decimal coordinates",
-          "type": "`$STRING`"
+          "title": "Lat",
+          "type": "`$STRING`",
+          "short": "Latitude of the recording in decimal coordinates"
         },
         {
           "name": "length",
-          "short": "Length of the recording in minutes",
-          "type": "`$STRING`"
+          "title": "Length",
+          "type": "`$STRING`",
+          "short": "Length of the recording in minutes"
         },
         {
           "name": "lic",
-          "short": "URL describing the license of this recording",
-          "type": "`$STRING`"
+          "title": "Lic",
+          "type": "`$STRING`",
+          "short": "URL describing the license of this recording"
         },
         {
           "name": "loc",
-          "short": "Name of the locality",
-          "type": "`$STRING`"
+          "title": "Loc",
+          "type": "`$STRING`",
+          "short": "Name of the locality"
         },
         {
           "name": "lon",
-          "short": "Longitude of the recording in decimal coordinates",
-          "type": "`$STRING`"
+          "title": "Lon",
+          "type": "`$STRING`",
+          "short": "Longitude of the recording in decimal coordinates"
         },
         {
           "name": "method",
-          "short": "Recording method (field recording, in the hand, etc.)",
-          "type": "`$STRING`"
+          "title": "Method",
+          "type": "`$STRING`",
+          "short": "Recording method (field recording, in the hand, etc.)"
         },
         {
           "name": "mic",
-          "short": "Microphone used",
-          "type": "`$STRING`"
+          "title": "Mic",
+          "type": "`$STRING`",
+          "short": "Microphone used"
         },
         {
           "name": "osci",
-          "short": "URLs to the three versions of oscillograms",
-          "type": "`$OBJECT`"
+          "title": "Osci",
+          "type": "`$OBJECT`",
+          "short": "URLs to the three versions of oscillograms"
         },
         {
           "name": "playbackused",
-          "short": "Was playback used to lure the animal?",
-          "type": "`$STRING`"
+          "title": "Playbackused",
+          "type": "`$STRING`",
+          "short": "Was playback used to lure the animal?"
         },
         {
           "name": "q",
-          "short": "Current quality rating for the recording",
-          "type": "`$STRING`"
+          "title": "Q",
+          "type": "`$STRING`",
+          "short": "Current quality rating for the recording"
         },
         {
           "name": "rec",
-          "short": "Name of the recordist",
-          "type": "`$STRING`"
+          "title": "Rec",
+          "type": "`$STRING`",
+          "short": "Name of the recordist"
         },
         {
           "name": "regnr",
-          "short": "Registration number of specimen (when collected)",
-          "type": "`$STRING`"
+          "title": "Regnr",
+          "type": "`$STRING`",
+          "short": "Registration number of specimen (when collected)"
         },
         {
           "name": "rmk",
-          "short": "Additional remarks by the recordist",
-          "type": "`$STRING`"
+          "title": "Rmk",
+          "type": "`$STRING`",
+          "short": "Additional remarks by the recordist"
         },
         {
           "name": "sex",
-          "short": "Sex of the animal",
-          "type": "`$STRING`"
+          "title": "Sex",
+          "type": "`$STRING`",
+          "short": "Sex of the animal"
         },
         {
           "name": "smp",
-          "short": "Sample rate",
-          "type": "`$STRING`"
+          "title": "Smp",
+          "type": "`$STRING`",
+          "short": "Sample rate"
         },
         {
           "name": "sono",
-          "short": "URLs to the four versions of sonograms",
-          "type": "`$OBJECT`"
+          "title": "Sono",
+          "type": "`$OBJECT`",
+          "short": "URLs to the four versions of sonograms"
         },
         {
           "name": "sp",
-          "short": "Specific name (epithet) of the species",
-          "type": "`$STRING`"
+          "title": "Sp",
+          "type": "`$STRING`",
+          "short": "Specific name (epithet) of the species"
         },
         {
           "name": "ssp",
-          "short": "Subspecies name (subspecific epithet)",
-          "type": "`$STRING`"
+          "title": "Ssp",
+          "type": "`$STRING`",
+          "short": "Subspecies name (subspecific epithet)"
         },
         {
           "name": "stage",
-          "short": "Life stage of the animal (adult, juvenile, etc.)",
-          "type": "`$STRING`"
+          "title": "Stage",
+          "type": "`$STRING`",
+          "short": "Life stage of the animal (adult, juvenile, etc.)"
         },
         {
           "name": "temp",
-          "short": "Temperature during recording (applicable to specific groups only)",
-          "type": "`$STRING`"
+          "title": "Temp",
+          "type": "`$STRING`",
+          "short": "Temperature during recording (applicable to specific groups only)"
         },
         {
           "name": "time",
-          "short": "Time of day that the recording was made",
-          "type": "`$STRING`"
+          "title": "Time",
+          "type": "`$STRING`",
+          "short": "Time of day that the recording was made"
         },
         {
           "name": "type",
-          "short": "Sound type of the recording (e.g., call, song)",
-          "type": "`$STRING`"
+          "title": "Type",
+          "type": "`$STRING`",
+          "short": "Sound type of the recording (e.g., call, song)"
         },
         {
           "name": "uploaded",
-          "short": "Date that the recording was uploaded to xeno-canto",
-          "type": "`$STRING`"
+          "title": "Uploaded",
+          "type": "`$STRING`",
+          "short": "Date that the recording was uploaded to xeno-canto"
         },
         {
           "name": "url",
-          "short": "URL specifying the details of this recording",
-          "type": "`$STRING`"
+          "title": "Url",
+          "type": "`$STRING`",
+          "short": "URL specifying the details of this recording"
         }
       ],
       "id": {
@@ -340,39 +370,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "key",
-                    "orig": "key",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 100,
-                    "kind": "query",
-                    "name": "per_page",
-                    "orig": "per_page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "sp:\"larus fuscus\"",
-                    "kind": "query",
-                    "name": "query",
-                    "orig": "query",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/recordings",
@@ -381,6 +378,47 @@ class Config {
                   "lit": "recordings"
                 }
               ],
+              "parts": [
+                "recordings"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.recordings`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "key",
+                    "orig": "key",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  },
+                  {
+                    "name": "per_page",
+                    "orig": "per_page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 100
+                  },
+                  {
+                    "name": "query",
+                    "orig": "query",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "reqd": true,
+                    "example": "sp:\"larus fuscus\""
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "key",
@@ -388,14 +426,7 @@ class Config {
                   "per_page",
                   "query"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.recordings`"
-              },
-              "parts": [
-                "recordings"
-              ]
+              }
             }
           ]
         }

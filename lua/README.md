@@ -45,7 +45,7 @@ local recordings, err = client:Recording():list()
 if err then error(err) end
 
 for _, item in ipairs(recordings) do
-  print(item["id"], item["alt"])
+  print(item["id"])
 end
 ```
 

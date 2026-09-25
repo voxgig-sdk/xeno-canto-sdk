@@ -1,0 +1,346 @@
+# Entity: recording
+
+main: kit: entity: recording: {
+
+  alias: field: {}
+
+  fields: {
+    also: {
+      h: "Also"
+      n: "also"
+      r: false
+      sh: "Identified background species in the recording"
+      t: "`$ARRAY`"
+    }
+    alt: {
+      h: "Alt"
+      n: "alt"
+      r: false
+      sh: "Altitude at which the recording was made"
+      t: "`$STRING`"
+    }
+    animalseen: {
+      h: "Animalseen"
+      n: "animalseen"
+      r: false
+      sh: "Was the recorded animal seen?"
+      t: "`$STRING`"
+    }
+    auto: {
+      h: "Auto"
+      n: "auto"
+      r: false
+      sh: "Automatic (non-supervised) recording?"
+      t: "`$STRING`"
+    }
+    cnt: {
+      h: "Cnt"
+      n: "cnt"
+      r: false
+      sh: "Country where the recording was made"
+      t: "`$STRING`"
+    }
+    date: {
+      h: "Date"
+      n: "date"
+      r: false
+      sh: "Date that the recording was made"
+      t: "`$STRING`"
+    }
+    dvc: {
+      h: "Dvc"
+      n: "dvc"
+      r: false
+      sh: "Recording device used"
+      t: "`$STRING`"
+    }
+    en: {
+      h: "En"
+      n: "en"
+      r: false
+      sh: "English name of the species"
+      t: "`$STRING`"
+    }
+    file: {
+      h: "File"
+      n: "file"
+      r: false
+      sh: "URL to the audio file"
+      t: "`$STRING`"
+    }
+    filename: {
+      h: "Filename"
+      n: "filename"
+      r: false
+      sh: "Original file name of the audio file"
+      t: "`$STRING`"
+    }
+    gen: {
+      h: "Gen"
+      n: "gen"
+      r: false
+      sh: "Generic name of the species"
+      t: "`$STRING`"
+    }
+    grp: {
+      h: "Grp"
+      n: "grp"
+      r: false
+      sh: "Group to which the species belongs"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Catalogue number of the recording on xeno-canto"
+      t: "`$STRING`"
+    }
+    lat: {
+      h: "Lat"
+      n: "lat"
+      r: false
+      sh: "Latitude of the recording in decimal coordinates"
+      t: "`$STRING`"
+    }
+    length: {
+      h: "Length"
+      n: "length"
+      r: false
+      sh: "Length of the recording in minutes"
+      t: "`$STRING`"
+    }
+    lic: {
+      h: "Lic"
+      n: "lic"
+      r: false
+      sh: "URL describing the license of this recording"
+      t: "`$STRING`"
+    }
+    loc: {
+      h: "Loc"
+      n: "loc"
+      r: false
+      sh: "Name of the locality"
+      t: "`$STRING`"
+    }
+    lon: {
+      h: "Lon"
+      n: "lon"
+      r: false
+      sh: "Longitude of the recording in decimal coordinates"
+      t: "`$STRING`"
+    }
+    method: {
+      h: "Method"
+      n: "method"
+      r: false
+      sh: "Recording method (field recording, in the hand, etc.)"
+      t: "`$STRING`"
+    }
+    mic: {
+      h: "Mic"
+      n: "mic"
+      r: false
+      sh: "Microphone used"
+      t: "`$STRING`"
+    }
+    osci: {
+      h: "Osci"
+      n: "osci"
+      r: false
+      sh: "URLs to the three versions of oscillograms"
+      t: "`$OBJECT`"
+    }
+    playbackused: {
+      h: "Playbackused"
+      n: "playbackused"
+      r: false
+      sh: "Was playback used to lure the animal?"
+      t: "`$STRING`"
+    }
+    q: {
+      h: "Q"
+      n: "q"
+      r: false
+      sh: "Current quality rating for the recording"
+      t: "`$STRING`"
+    }
+    rec: {
+      h: "Rec"
+      n: "rec"
+      r: false
+      sh: "Name of the recordist"
+      t: "`$STRING`"
+    }
+    regnr: {
+      h: "Regnr"
+      n: "regnr"
+      r: false
+      sh: "Registration number of specimen (when collected)"
+      t: "`$STRING`"
+    }
+    rmk: {
+      h: "Rmk"
+      n: "rmk"
+      r: false
+      sh: "Additional remarks by the recordist"
+      t: "`$STRING`"
+    }
+    sex: {
+      h: "Sex"
+      n: "sex"
+      r: false
+      sh: "Sex of the animal"
+      t: "`$STRING`"
+    }
+    smp: {
+      h: "Smp"
+      n: "smp"
+      r: false
+      sh: "Sample rate"
+      t: "`$STRING`"
+    }
+    sono: {
+      h: "Sono"
+      n: "sono"
+      r: false
+      sh: "URLs to the four versions of sonograms"
+      t: "`$OBJECT`"
+    }
+    sp: {
+      h: "Sp"
+      n: "sp"
+      r: false
+      sh: "Specific name (epithet) of the species"
+      t: "`$STRING`"
+    }
+    ssp: {
+      h: "Ssp"
+      n: "ssp"
+      r: false
+      sh: "Subspecies name (subspecific epithet)"
+      t: "`$STRING`"
+    }
+    stage: {
+      h: "Stage"
+      n: "stage"
+      r: false
+      sh: "Life stage of the animal (adult, juvenile, etc.)"
+      t: "`$STRING`"
+    }
+    temp: {
+      h: "Temp"
+      n: "temp"
+      r: false
+      sh: "Temperature during recording (applicable to specific groups only)"
+      t: "`$STRING`"
+    }
+    time: {
+      h: "Time"
+      n: "time"
+      r: false
+      sh: "Time of day that the recording was made"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "Sound type of the recording (e.g., call, song)"
+      t: "`$STRING`"
+    }
+    uploaded: {
+      h: "Uploaded"
+      n: "uploaded"
+      r: false
+      sh: "Date that the recording was uploaded to xeno-canto"
+      t: "`$STRING`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: false
+      sh: "URL specifying the details of this recording"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "recording"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /recordings"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "key"
+                or: "key"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "sp:\"larus fuscus\""
+                k: "query"
+                n: "query"
+                or: "query"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/recordings"
+          q: {
+            exist: [
+              "key"
+              "page"
+              "per_page"
+              "query"
+            ]
+          }
+          s: [
+            {
+              lit: "recordings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.recordings`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
