@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 XenoCantoUtility::setRegistrar(function (XenoCantoUtility $u): void {
     $u->clean = [XenoCantoClean::class, 'call'];
+    $u->clean_add = [XenoCantoClean::class, 'add'];
+    $u->clean_explain = [XenoCantoDone::class, 'clean_explain'];
     $u->done = [XenoCantoDone::class, 'call'];
     $u->make_error = [XenoCantoMakeError::class, 'call'];
     $u->feature_add = [XenoCantoFeatureAdd::class, 'call'];

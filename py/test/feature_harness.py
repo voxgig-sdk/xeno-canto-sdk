@@ -20,6 +20,7 @@ from xenocanto_sdk.core.control import XenoCantoControl
 from xenocanto_sdk.core.error import XenoCantoError
 from xenocanto_sdk.core.result import XenoCantoResult
 from xenocanto_sdk.core.spec import XenoCantoSpec
+from xenocanto_sdk.utility.clean import clean_util, clean_add_util
 
 
 # True when this SDK was generated with the named feature.
@@ -115,6 +116,9 @@ def build_url(spec):
 class _Utility:
     def __init__(self, fetcher):
         self.fetcher = fetcher
+        # The real ones: every feature record leaves through clean.
+        self.clean = clean_util
+        self.clean_add = clean_add_util
 
         def param(ctx, name):
             params = ctx.spec.params if ctx.spec is not None else {}

@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 XenoCantoUtility.registrar = ->(u) {
   u.clean = XenoCantoUtilities::Clean
+  u.clean_add = XenoCantoUtilities::CleanAdd
+  u.clean_explain = XenoCantoUtilities::CleanExplain
   u.done = XenoCantoUtilities::Done
   u.make_error = XenoCantoUtilities::MakeError
   u.feature_add = XenoCantoUtilities::FeatureAdd
