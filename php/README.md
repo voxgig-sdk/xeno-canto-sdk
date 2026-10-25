@@ -12,7 +12,7 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/xeno-canto-sdk/releases)), or
+GitHub release tag (`php/vX.Y.Z`, see [Tags](https://github.com/voxgig-sdk/xeno-canto-sdk/tags)), or
 from a clone as a Composer path repository:
 
 ```bash
@@ -25,7 +25,7 @@ composer require voxgig-sdk/xeno-canto-sdk:@dev
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
-loading a specific record.
+loading a specific record. The client sends the API key as the `key` query parameter.
 
 ### 1. Create a client
 
@@ -43,7 +43,7 @@ $client = new XenoCantoSDK([
 ```php
 try {
     // list() returns entity instances; data_get() reads each record.
-    $recordings = $client->Recording()->list();
+    $recordings = $client->Recording()->list(["key" => "example", "query" => "example"]);
     foreach ($recordings as $record) {
         $item = $record->data_get();
         echo $item["id"] . " " . $item["also"] . "\n";
@@ -61,7 +61,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $recordings = $client->Recording()->list();
+    $recordings = $client->Recording()->list(["key" => "example", "query" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -135,7 +135,7 @@ $client = XenoCantoSDK::test();
 
 // list() returns entity instances (throws on error);
 // call data_get() for the mock record.
-$recording = $client->Recording()->list();
+$recording = $client->Recording()->list(["key" => "example", "query" => "example"]);
 print_r(array_map(fn($item) => $item->data_get(), $recording));
 ```
 
@@ -225,7 +225,7 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
+| `list` | `(?array $reqmatch = null, $ctrl): mixed` | List entities matching the criteria (call with no argument to list all), one per record. |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -235,9 +235,9 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
-ops, a `list` for `list`) and throw on error. Wrap calls in
-`try`/`catch` to handle failures.
+Entity operations return the entity, and `list` an `array` of entities, one
+per record; an entity's `data_get()` reads its record (an `array`). They
+throw on error, so wrap calls in `try`/`catch` to handle failures.
 
 The `direct()` escape hatch never throws — it returns a result `array`
 you branch on via `$result["ok"]`:
@@ -359,8 +359,8 @@ Create an instance: `$recording = $client->Recording();`
 #### Example: List
 
 ```php
-// list() returns an array of Recording records (throws on error).
-$recordings = $client->Recording()->list();
+// list() returns an array of Recording entities, one per record (throws on error).
+$recordings = $client->Recording()->list(["key" => "example", "query" => "example"]);
 ```
 
 ## Features
@@ -526,7 +526,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $recording = $client->Recording();
-$recording->list();
+$recording->list(["key" => "example", "query" => "example"]);
 
 // $recording->data_get() now returns the recording data from the last list
 // $recording->match_get() returns the last match criteria

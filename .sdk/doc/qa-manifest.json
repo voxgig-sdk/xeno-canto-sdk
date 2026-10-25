@@ -3,5 +3,18 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "API for accessing bird and wildlife sounds from around the world. Provides a RESTful JSON-based interface to search for and retrieve recordings of various species.",
+      "API key available to all registered XC members with verified email addresses",
+      "Altitude at which the recording was made",
+      "Automatic (non-supervised) recording?",
+      "Country where the recording was made",
+      "Identified background species in the recording",
+      "Successful query returning recordings",
+      "Was the recorded animal seen?",
+      "Xeno-canto API v3 Server"
+    ]
+  }
 }

@@ -133,10 +133,10 @@ local recording = client:Recording(nil)
 
 #### `list(reqmatch, ctrl) -> any, err`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns an array of entities, one per record, or `nil` and an error on failure.
 
 ```lua
-local results, err = client:Recording():list()
+local results, err = client:Recording():list({ key = "example", query = "example" })
 ```
 
 ### Common Methods
@@ -326,6 +326,7 @@ Timeout.
 | Option | Type |
 |---|---|
 | `clearTimer` | function |
+| `now` | function |
 | `setTimer` | function |
 
 These take no default: the feature behaves one way when you supply them and

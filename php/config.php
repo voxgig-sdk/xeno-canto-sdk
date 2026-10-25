@@ -93,6 +93,7 @@ class XenoCantoConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -402,10 +403,12 @@ class XenoCantoConfig
                   'select' => [
                     'exist' => [
                       'key',
-                      'page',
-                      'per_page',
                       'query',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

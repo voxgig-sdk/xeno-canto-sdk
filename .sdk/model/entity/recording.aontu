@@ -322,10 +322,12 @@ main: kit: entity: recording: {
           q: {
             exist: [
               "key"
-              "page"
-              "per_page"
               "query"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

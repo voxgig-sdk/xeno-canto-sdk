@@ -17,16 +17,38 @@ const PLAN = [
         "args": [],
         "select": {
             "key": "v1",
-            "page": "v1",
-            "per_page": "v1",
-            "query": "sp:\"larus fuscus\""
+            "query": "sp:\"larus fuscus\"",
+            "page": 1,
+            "per_page": 100
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "query",
             "key",
             "per_page",
             "page"
+        ],
+        "queryArgs": [
+            {
+                "name": "key",
+                "wire": "key"
+            },
+            {
+                "name": "page",
+                "wire": "page"
+            },
+            {
+                "name": "per_page",
+                "wire": "per_page"
+            },
+            {
+                "name": "query",
+                "wire": "query"
+            }
         ],
         "auth": [
             [
@@ -44,58 +66,59 @@ const PLAN = [
             "numPages": 1,
             "recordings": [
                 {
+                    "id": "x",
+                    "gen": "x",
+                    "sp": "x",
+                    "ssp": "x",
+                    "grp": "birds",
+                    "en": "x",
+                    "rec": "x",
+                    "cnt": "x",
+                    "loc": "x",
+                    "lat": "x",
+                    "lon": "x",
+                    "alt": "x",
+                    "type": "x",
+                    "sex": "x",
+                    "stage": "x",
+                    "method": "x",
+                    "url": "x",
+                    "file": "x",
+                    "file-name": "x",
+                    "sono": {
+                        "small": "x",
+                        "med": "x",
+                        "large": "x",
+                        "full": "x"
+                    },
+                    "osci": {
+                        "small": "x",
+                        "med": "x",
+                        "large": "x"
+                    },
+                    "lic": "x",
+                    "q": "x",
+                    "length": "x",
+                    "time": "x",
+                    "date": "x",
+                    "uploaded": "x",
                     "also": [
                         "x"
                     ],
-                    "alt": "x",
-                    "animal-seen": "x",
-                    "auto": "x",
-                    "cnt": "x",
-                    "date": "x",
-                    "dvc": "x",
-                    "en": "x",
-                    "file": "x",
-                    "file-name": "x",
-                    "gen": "x",
-                    "grp": "birds",
-                    "id": "x",
-                    "lat": "x",
-                    "length": "x",
-                    "lic": "x",
-                    "loc": "x",
-                    "lon": "x",
-                    "method": "x",
-                    "mic": "x",
-                    "osci": {
-                        "large": "x",
-                        "med": "x",
-                        "small": "x"
-                    },
-                    "playback-used": "x",
-                    "q": "x",
-                    "rec": "x",
-                    "regnr": "x",
                     "rmk": "x",
-                    "sex": "x",
-                    "smp": "x",
-                    "sono": {
-                        "full": "x",
-                        "large": "x",
-                        "med": "x",
-                        "small": "x"
-                    },
-                    "sp": "x",
-                    "ssp": "x",
-                    "stage": "x",
+                    "animal-seen": "x",
+                    "playback-used": "x",
                     "temp": "x",
-                    "time": "x",
-                    "type": "x",
-                    "uploaded": "x",
-                    "url": "x"
+                    "regnr": "x",
+                    "auto": "x",
+                    "dvc": "x",
+                    "mic": "x",
+                    "smp": "x"
                 }
             ]
         },
-        "idField": "id"
+        "idField": "id",
+        "ownQuery": "key"
     }
 ];
 (0, node_test_1.describe)('definition', () => {
